@@ -1,5 +1,6 @@
 import fitz 
-pdf_path = 'CIS/windows.pdf'
+import re 
+pdf_path = 'CIS/macOS.pdf'
 
 class HeaderDataNotFoundException(Exception):
     """Custom exception raised when header data is not found."""
@@ -33,20 +34,46 @@ def extract_header_from_pdf(page):
         if not CIS_header["OS"] or not CIS_header["Benchmark Name"] or not CIS_header["Version"] or not CIS_header["Issue Date"]:
             raise HeaderDataNotFoundException("Unable to find all required header data. The file might be incorrect or incomplete.")
 
-        print(CIS_header)
         return CIS_header
     
     except Exception as e:
         print(f"Error: {e}")
         raise
+    
+def extract_titles_and_page_numbers(text):
+    pattern = re.compile(r"(.+?)\s+\.{2,}\s*(\d+)\s*$")
+    results = {} 
+    
+    lines = text.split('\n')
+    
+    for line in lines:
+        match = pattern.match(line)
+        if match:
+            title = match.group(1).strip() 
+            page_number = int(match.group(2)) 
+            results[title] = page_number
+    return results
+
+
 
 def extract_data_from_pdf(pdf_path):
     pdf_document = fitz.open(pdf_path)
     data = []
 
-    page = pdf_document.load_page(0)
-    extract_header_from_pdf(page)
-    
+    CIS_header = extract_header_from_pdf(pdf_document.load_page(0))
+
+    CIS_index = {"Overview":-1}
+    index_found_page = False 
+    for page_no in range(1,pdf_document.page_count):
+        text = pdf_document.load_page(page_no).get_text("text")
+        if index_found_page and CIS_index["Overview"] == page_no :
+            print(CIS_index)
+            break 
+
+        if 'Table of Contents' in text or index_found_page:
+            CIS_index.update(extract_titles_and_page_numbers(text))
+            index_found_page = True
+
     issue_data = {
         "Title of the Issue": "",
         "Profile Applicability": "",
