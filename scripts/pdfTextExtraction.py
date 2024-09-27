@@ -1,6 +1,9 @@
 import fitz 
 import re 
-pdf_path = 'CIS/ubuntu.pdf'
+import json
+
+file_name = "macOS"
+pdf_path = "CIS/"+file_name+".pdf"
 
 class HeaderDataNotFoundException(Exception):
     """Custom exception raised when header data is not found."""
@@ -72,7 +75,7 @@ def clean_internal_only_prefix(data_dict):
     
     for key, value in data_dict.items():
         if key.startswith("Internal Only - General"):
-            cleaned_key = key.replace("Internal Only - General", "").strip()
+            cleaned_key = key.replace("Internal Only - General ", "").strip()
         else:
             cleaned_key = key
         cleaned_dict[cleaned_key] = value
@@ -178,13 +181,21 @@ def query(given_query):
         if match:
             data[section] = match.group(1).strip() 
     
-    for key, value in data.items():
-        print(f"{key}: {value}\n")
+    return data 
 
 
 
 
 header_list , index_list , key_list  = extract_header_index_from_pdf()
+for keyl in key_list:
+    print(keyl)
+results = []
+for key in key_list:
+    result = query(key) 
+    results.append(result) 
 
-for i in range(len(key_list)):
-    query(key_list[i])
+# Write the results to a JSON file
+with open('output/'+file_name+'.json', 'w') as json_file:
+    json.dump(results, json_file, indent=4) 
+
+print("Data has been written to "+file_name+".json")
