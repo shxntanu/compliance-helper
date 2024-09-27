@@ -61,7 +61,17 @@ def extract_titles_and_page_numbers(text):
 
     return results
 
-
+def clean_internal_only_prefix(data_dict):
+    cleaned_dict = {}
+    
+    for key, value in data_dict.items():
+        if key.startswith("Internal Only - General"):
+            cleaned_key = key.replace("Internal Only - General", "").strip()
+        else:
+            cleaned_key = key
+        cleaned_dict[cleaned_key] = value
+    
+    return cleaned_dict
 
 
 def extract_data_from_pdf(pdf_path):
@@ -75,7 +85,9 @@ def extract_data_from_pdf(pdf_path):
     for page_no in range(1,pdf_document.page_count):
         text = pdf_document.load_page(page_no).get_text("text")
         if index_found_page and CIS_index["Overview"] == page_no :
-            print(CIS_index)
+            CIS_index = clean_internal_only_prefix(CIS_index)
+            for title, page_number in CIS_index.items():
+                print(f"Title: {title}, Page Number: {page_number}")
             break 
 
         if 'Table of Contents' in text or index_found_page:
