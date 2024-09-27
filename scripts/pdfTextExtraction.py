@@ -42,17 +42,25 @@ def extract_header_from_pdf(page):
     
 def extract_titles_and_page_numbers(text):
     pattern = re.compile(r"(.+?)\s+\.{2,}\s*(\d+)\s*$")
-    results = {} 
-    
+    results = {}
     lines = text.split('\n')
+
+    merged_line = ""
     
     for line in lines:
-        match = pattern.match(line)
-        if match:
-            title = match.group(1).strip() 
-            page_number = int(match.group(2)) 
-            results[title] = page_number
+        if re.search(r"\d+\s*$", line):
+            merged_line += " " + line.strip() 
+            match = pattern.match(merged_line)
+            if match:
+                title = match.group(1).strip()
+                page_number = int(match.group(2))
+                results[title] = page_number
+            merged_line = "" 
+        else:
+            merged_line += " " + line.strip()
+
     return results
+
 
 
 
