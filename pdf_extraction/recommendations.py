@@ -32,20 +32,15 @@ class Recommendation:
         self.description = ""
         self.rationale = ""
         self.impact = ""
-        self.audit = {
-            "graphical_method": [],
-            "terminal_method": ""
-        }
-        self.remediation = {
-            "graphical_method": [],
-            "terminal_method": ""
-        }
+        self.audit = ""
+        self.remediation = ""
+        self.default_value = ""
         self.references = []
         self.additional_information = ""
         self.cis_controls = []
 
     def __str__(self) -> str:
-        return f"Number: {self.number}\nTitle: {self.title}\nProfile Applicability: {self.profile_applicability}\nDescription: {self.description[:100]}\nRationale: {self.rationale[:100]}\nImpact: {self.impact[:100]}\nAudit - Graphical Method: {self.audit['graphical_method']}\nAudit - Terminal Method: {self.audit['terminal_method'][:100]}\nRemediation - Graphical Method: {self.remediation['graphical_method']}\nRemediation - Terminal Method: {self.remediation['terminal_method'][:100]}\nReferences: {self.references}\nAdditional Information: {self.additional_information[:100]}\nCIS Controls: {self.cis_controls}"
+        return f"Number: {self.number}\nTitle: {self.title}\nProfile Applicability: {self.profile_applicability}\nDescription: {self.description[:100]}\nRationale: {self.rationale[:100]}\nImpact: {self.impact[:100]}\nAudit: {self.audit}\nRemediation: {self.remediation}\nDefault Value: {self.default_value}\nReferences: {self.references}\nAdditional Information: {self.additional_information[:100]}\nCIS Controls: {self.cis_controls}"
 
 def parse_recommendation(text):
     rec = Recommendation()
@@ -56,7 +51,7 @@ def parse_recommendation(text):
         rec.number, rec.title = match.groups()
     
     # Extract other sections
-    sections = re.split(r'\n(?=Profile Applicability:|Description:|Rationale:|Impact:|Audit:|Remediation:|References:|Additional Information:|CIS Controls:)', text)
+    sections = re.split(r'\n(?=Profile Applicability:|Description:|Rationale:|Impact:|Audit:|Remediation:|Default Value:|References:|Additional Information:|CIS Controls:)', text)
     
     for section in sections[1:]:  # Skip the first section (title)
         if section.startswith('Profile Applicability:'):
@@ -68,36 +63,24 @@ def parse_recommendation(text):
         elif section.startswith('Impact:'):
             rec.impact = '\n'.join(section.split('\n')[1:]).strip()
         elif section.startswith('Audit:'):
-            audit_lines = section.split('\n')[1:]
-            print("Audit Lines: \n", audit_lines)
-            graphical_start = audit_lines.index('Graphical Method:  ') if 'Graphical Method:  ' in audit_lines else -1
-            terminal_start = audit_lines.index('Terminal Method:  ') if 'Terminal Method:  ' in audit_lines else -1
-            
-            if graphical_start != -1:
-                rec.audit['graphical_method'] = [line.strip() for line in audit_lines[graphical_start+1:terminal_start] if line.strip()]
-            if terminal_start != -1:
-                rec.audit['terminal_method'] = '\n'.join(audit_lines[terminal_start+1:]).strip()
+            rec.audit = [audit.strip() for audit in section.split('\n')[1:] if audit.strip()]
         elif section.startswith('Remediation:'):
-            remediation_lines = section.split('\n')[1:]
-            graphical_start = remediation_lines.index('Graphical Method:') if 'Graphical Method:' in remediation_lines else -1
-            terminal_start = remediation_lines.index('Terminal Method:') if 'Terminal Method:' in remediation_lines else -1
-            
-            if graphical_start != -1:
-                rec.remediation['graphical_method'] = [line.strip() for line in remediation_lines[graphical_start+1:terminal_start] if line.strip()]
-            if terminal_start != -1:
-                rec.remediation['terminal_method'] = '\n'.join(remediation_lines[terminal_start+1:]).strip()
+            rec.remediation = [rem.strip() for rem in section.split('\n')[1:] if rem.strip()]
+        elif section.startswith('Default Value:'):
+            rec.default_value = [def_val.strip() for def_val in section.split('\n')[1:] if def_val.strip()]
         elif section.startswith('References:'):
             rec.references = [ref.strip() for ref in section.split('\n')[1:] if ref.strip()]
         elif section.startswith('Additional Information:'):
             rec.additional_information = '\n'.join(section.split('\n')[1:]).strip()
-        # elif section.startswith('CIS Controls:'):
-        #     controls_lines = section.split('\n')[1:]
-        #     for line in controls_lines:
-        #         if line.strip():
-        #             version, control = line.split(':', 1)
-        #             rec.cis_controls.append({
-        #                 'version': version.strip(),
-        #                 'control': control.strip()
-        #             })
+        elif section.startswith('CIS Controls:'):
+            # controls_lines = section.split('\n')[1:]
+            # for line in controls_lines:
+            #     if line.strip():
+            #         version, control = line.split(':', 1)
+            #         rec.cis_controls.append({
+            #             'version': version.strip(),
+            #             'control': control.strip()
+            #         })
+            pass # Skip this section for now as we need to read tables
     
     return rec

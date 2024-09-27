@@ -18,7 +18,7 @@
 from recommendations import extract_recommendations_from_pdf, parse_recommendation
 
 pdf_path = '/home/shantanu/Desktop/BMC/docs/CIS_Microsoft_Windows_Server_2022_Benchmark_v3.0.0.pdf'
-raw_recommendations = extract_recommendations_from_pdf(pdf_path, start_page=34,)
+raw_recommendations = extract_recommendations_from_pdf(pdf_path, start_page=34, end_page=36)
 
 parsed_recommendations = []
 for raw_rec in raw_recommendations:
