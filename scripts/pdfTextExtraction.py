@@ -58,7 +58,7 @@ def extract_titles_and_page_numbers(text):
             match = pattern.match(merged_line)
             if match:
                 title = match.group(1).strip()
-                page_number = int(match.group(2)) + 1
+                page_number = int(match.group(2))
                 results[title] = page_number
             merged_line = ""
         else:
@@ -98,7 +98,7 @@ def calculate_page_ranges(page_dict):
     
     return page_ranges
 
-def extract_header_index_from_pdf(pdf_path):
+def extract_header_index_from_pdf():
     # Open the PDF document
     pdf_document = fitz.open(pdf_path)
 
@@ -137,17 +137,54 @@ def extract_header_index_from_pdf(pdf_path):
 
     return CIS_header, CIS_index, key_list
 
-        
+def query(given_query):
+    pdf_document = fitz.open(pdf_path)
+    page_range = index_list[given_query]
+    text = ""
+    for page_no in range(page_range[0],page_range[1]+1):
+        text += pdf_document.load_page(page_no).get_text("text")
 
-issue_data = {
-    "Title of the Issue": "",
-    "Profile Applicability": "",
-    "Description": "",
-    "Rationale": "",
-    "Audit": "",
-    "Remediation": "",
-    "CIS Control": ""
-}
+    data = {
+        "Title": "",
+        "Profile Applicability": "",
+        "Description": "",
+        "Rationale": "",
+        "Impact": "",
+        "Audit": "",
+        "Remediation": "",
+        "References": "",
+        "Additional Information": "",
+        "CIS Control": ""
+    }
 
-header_list , index_list , key_list  = extract_header_index_from_pdf(pdf_path)
+    # Regex patterns for each section
+    sections = {
+        "Title": r"^(.*?)\n(?=Profile Applicability|Description|Rationale|Audit|Remediation|References|CIS Controls)",
+        "Profile Applicability": r"Profile Applicability:\s*(.*?)\n(?=Description|Rationale|Audit|Remediation|References|CIS Controls|$)",
+        "Description": r"Description:\s*(.*?)\n(?=Rationale|Audit|Remediation|References|CIS Controls|$)",
+        "Rationale": r"Rationale:\s*(.*?)\n(?=Audit|Remediation|References|CIS Controls|$)",
+        "Audit": r"Audit:\s*(.*?)\n(?=Remediation|References|CIS Controls|$)",
+        "Remediation": r"Remediation:\s*(.*?)\n(?=References|CIS Controls|$)",
+        "References": r"References:\s*(.*?)\n(?=CIS Controls|$)",
+        "CIS Control": r"CIS Controls:\s*(.*?)$"
+    }
 
+    # Remove page numbers and unwanted text
+    text = re.sub(r"Page \d+", "", text)
+
+    # Extract each section using regex
+    for section, pattern in sections.items():
+        match = re.search(pattern, text, re.DOTALL)  # DOTALL makes '.' match newlines too
+        if match:
+            data[section] = match.group(1).strip() 
+    
+    for key, value in data.items():
+        print(f"{key}: {value}\n")
+
+
+
+
+header_list , index_list , key_list  = extract_header_index_from_pdf()
+
+for i in range(len(key_list)):
+    query(key_list[i])
