@@ -1,11 +1,10 @@
-from PyPDF2 import PdfReader, PageObject
+import fitz 
 import re 
-import streamlit as st
-from streamlit.delta_generator import DeltaGenerator
 import json
+import streamlit as st
 
 
-def remove_dots(text):
+def remove_dots(text: str) -> str:
     # Use regex to remove dots and spaces from the end of the string
     cleaned_text = re.sub(r'[.\s]+$', '', text)
     return cleaned_text
@@ -14,7 +13,7 @@ class HeaderDataNotFoundException(Exception):
     """Custom exception raised when header data is not found."""
     pass
 
-def extract_header_from_pdf(page: PageObject):
+def extract_header_from_pdf(page):
     # Dictionary to hold header information
     CIS_header = {
         "OS": "",
@@ -23,7 +22,7 @@ def extract_header_from_pdf(page: PageObject):
         "Issue Date": "",
     }
     
-    text = page.extract_text("text")
+    text = page.get_text("text")
     lines = text.split('\n')
 
     try:
@@ -77,10 +76,12 @@ def extract_titles_and_page_numbers(text):
 def clean_internal_only_prefix(data_dict):
     # Clean up "Internal Only - General" prefix from dictionary keys
     cleaned_dict = {}
-    
     for key, value in data_dict.items():
-        if key.startswith("Internal Only - General"):
+        # print(key)
+        if key.startswith("Internal Only - General") or key.startswith(" Internal Only - General"):
+            # print("----------------------------------------------------------------------------")
             cleaned_key = key.replace("Internal Only - General ", "").strip()
+            # print(cleaned_key)
         else:
             cleaned_key = key
         cleaned_dict[cleaned_key] = value
@@ -106,22 +107,20 @@ def calculate_page_ranges(page_dict):
     
     return page_ranges
 
-@st.cache_data
-def extract_header_index_from_pdf(pdf_path):
+def extract_header_index_from_pdf(file_bytes):
     # Open the PDF document
-    reader = PdfReader(pdf_path)
+    pdf_document = fitz.open(stream=file_bytes, filetype="pdf")
 
     # Extract header from the first page
-    CIS_header = extract_header_from_pdf(reader.pages[0])
+    CIS_header = extract_header_from_pdf(pdf_document.load_page(0))
 
     # Initialize the index and tracking variables
     CIS_index = {"Overview":-1}
     index_found_page = False
     
     # Loop through the PDF pages to extract the index
-    for page_num in range(1, len(reader.pages)):
-        page = reader.pages[page_num]
-        text = page.extract_text()
+    for page_num in range(1,pdf_document.page_count):
+        text = pdf_document.load_page(page_num).get_text("text")
         
         # Clean and calculate ranges once the "Overview" page number is found
         if index_found_page and CIS_index["Overview"] == page_num:
@@ -134,43 +133,36 @@ def extract_header_index_from_pdf(pdf_path):
             CIS_index.update(extract_titles_and_page_numbers(text))
             index_found_page = True
 
-        # Find the first title starting with "1" (start of compliance)
-        keys_list = list(CIS_index.keys())
-        start_of_compalience = -1
-        for index, key in enumerate(keys_list):
-            if key.startswith("1"):
-                start_of_compalience = index
-                break
+    # Find the first title starting with "1" (start of compliance)
+    keys_list = list(CIS_index.keys())
+    start_of_compalience = -1
+    for index, key in enumerate(keys_list):
+        if key.startswith("1"):
+            start_of_compalience = index
+            break
     
     # Extract keys after the start of compliance
     key_list = keys_list[start_of_compalience:]
 
     return CIS_header, CIS_index, key_list
 
-def query(pdf_path, given_query, index_list):
-    # Open the PDF document
-    reader = PdfReader(pdf_path)
+def query(file_bytes, given_query, index_list):
+    pdf_document = fitz.open(stream=file_bytes, filetype="pdf")
+    print(given_query)
     page_range = index_list[given_query]
     text = ""
-    for page_num in range(page_range[0],page_range[1]+1):
-        text += reader.pages[page_num].extract_text()
+    
+    # Concatenate the text from the page range
+    for page_num in range(page_range[0], page_range[1] + 1):
+        text += pdf_document.load_page(page_num).get_text("text")
 
+    # Initial dictionary with Title and other fields as empty
     data = {
-        "Title": "",
-        "Profile Applicability": "",
-        "Description": "",
-        "Rationale": "",
-        "Impact": "",
-        "Audit": "",
-        "Remediation": "",
-        "References": "",
-        "Additional Information": "",
-        "CIS Control": ""
+        "Title": given_query,
     }
 
     # Regex patterns for each section
     sections = {
-        "Title": r"^(.*?)\n(?=Profile Applicability|Description|Rationale|Audit|Remediation|References|CIS Controls)",
         "Profile Applicability": r"Profile Applicability:\s*(.*?)\n(?=Description|Rationale|Audit|Remediation|References|CIS Controls|$)",
         "Description": r"Description:\s*(.*?)\n(?=Rationale|Audit|Remediation|References|CIS Controls|$)",
         "Rationale": r"Rationale:\s*(.*?)\n(?=Audit|Remediation|References|CIS Controls|$)",
@@ -183,17 +175,19 @@ def query(pdf_path, given_query, index_list):
     # Remove page numbers and unwanted text
     text = re.sub(r"Page \d+", "", text)
 
-    # Extract each section using regex
+    # Extract each section using regex, and only add non-empty sections to `data`
     for section, pattern in sections.items():
         match = re.search(pattern, text, re.DOTALL)  # DOTALL makes '.' match newlines too
         if match:
-            data[section] = match.group(1).strip() 
-    
-    return data 
+            section_content = match.group(1).strip()
+            if section_content:  # Only add the section if it's not empty
+                data[section] = section_content
+
+    return data
+
 
 # header_list , index_list , key_list  = extract_header_index_from_pdf()
-# for keyl in key_list:
-#     print(keyl)
+
 # results = []
 # for key in key_list:
 #     result = query(key) 
