@@ -22,24 +22,26 @@ os = st.selectbox(
 
 if uploaded_file:
     if uploaded_file.type == "application/pdf":
-        header_list , index_list , key_list  = extract_header_index_from_pdf(uploaded_file)
+        file_bytes = uploaded_file.read()
+        header_list , index_list , key_list  = extract_header_index_from_pdf(file_bytes)
         
         # This prints out the 3 lists
-        st.write(header_list)
-        st.write(index_list)
-        st.write(key_list)
+        # st.write(header_list)
+        # st.write(index_list)
+        # st.write(key_list)
     else:
         st.error("Only PDF files are supported at the moment.")
         
     heading = st.selectbox("Select a heading", key_list)
     
-    if heading:
+    confirm = st.button("Generate")
+    
+    if heading and confirm:
         # Here it is giving error in the query function
         # Error: TypeError: 'int' object is not subscriptable
-        heading_doc = query(uploaded_file, heading, index_list)
-        
-        prompt = get_prompt(heading_doc)
-        
+        heading_doc = query(file_bytes, heading, index_list)
+        prompt = get_prompt(heading_doc, os)
         response = askLLM(prompt)
         
-        st.write(response)
+        st.header("Response")
+        st.markdown(response)
