@@ -15,25 +15,24 @@
 # extracted_text = extract_text_from_pdf(pdf_path)
 # print(extracted_text)
 
+import json
 from recommendations import extract_recommendations_from_pdf, parse_recommendation
 
 pdf_path = '/home/shantanu/Desktop/BMC/docs/CIS_Microsoft_Windows_Server_2022_Benchmark_v3.0.0.pdf'
-raw_recommendations = extract_recommendations_from_pdf(pdf_path, start_page=34, end_page=36)
+raw_recommendations = extract_recommendations_from_pdf(pdf_path, start_page=33, end_page=46)
 
 parsed_recommendations = []
 for raw_rec in raw_recommendations:
+    print(raw_rec)
     try:
         parsed_rec = parse_recommendation(raw_rec)
         print("Parsed Recommendation: ", parsed_rec)
         parsed_recommendations.append(parsed_rec)
-    except:
-        continue
+    except Exception as inst:
+        print(type(inst))  
+        print(inst.args)   
+        print(inst)
 
-# Print the parsed recommendations
-for i, rec in enumerate(parsed_recommendations, 1):
-    print(f"Recommendation {i}:")
-    print(f"Number: {rec.number}")
-    print(f"Title: {rec.title}")
-    print(f"Profile Applicability: {rec.profile_applicability}")
-    print(f"Description: {rec.description[:100]}...")  # Truncated for brevity
-    print("\n")
+recommendations_list = [recommendation.dict() for recommendation in parsed_recommendations]
+with open("recommendations.json", "w") as json_file:
+    json.dump(recommendations_list, json_file, indent=4)
