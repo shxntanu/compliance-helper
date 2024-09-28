@@ -72,10 +72,12 @@ def extract_titles_and_page_numbers(text):
 def clean_internal_only_prefix(data_dict):
     # Clean up "Internal Only - General" prefix from dictionary keys
     cleaned_dict = {}
-    
     for key, value in data_dict.items():
-        if key.startswith("Internal Only - General"):
+        # print(key)
+        if key.startswith("Internal Only - General") or key.startswith(" Internal Only - General"):
+            # print("----------------------------------------------------------------------------")
             cleaned_key = key.replace("Internal Only - General ", "").strip()
+            # print(cleaned_key)
         else:
             cleaned_key = key
         cleaned_dict[cleaned_key] = value
@@ -127,13 +129,13 @@ def extract_header_index_from_pdf():
             CIS_index.update(extract_titles_and_page_numbers(text))
             index_found_page = True
 
-        # Find the first title starting with "1" (start of compliance)
-        keys_list = list(CIS_index.keys())
-        start_of_compalience = -1
-        for index, key in enumerate(keys_list):
-            if key.startswith("1"):
-                start_of_compalience = index
-                break
+    # Find the first title starting with "1" (start of compliance)
+    keys_list = list(CIS_index.keys())
+    start_of_compalience = -1
+    for index, key in enumerate(keys_list):
+        if key.startswith("1"):
+            start_of_compalience = index
+            break
     
     # Extract keys after the start of compliance
     key_list = keys_list[start_of_compalience:]
@@ -142,27 +144,21 @@ def extract_header_index_from_pdf():
 
 def query(given_query):
     pdf_document = fitz.open(pdf_path)
+    print(given_query)
     page_range = index_list[given_query]
     text = ""
-    for page_no in range(page_range[0],page_range[1]+1):
+    
+    # Concatenate the text from the page range
+    for page_no in range(page_range[0], page_range[1] + 1):
         text += pdf_document.load_page(page_no).get_text("text")
 
+    # Initial dictionary with Title and other fields as empty
     data = {
-        "Title": "",
-        "Profile Applicability": "",
-        "Description": "",
-        "Rationale": "",
-        "Impact": "",
-        "Audit": "",
-        "Remediation": "",
-        "References": "",
-        "Additional Information": "",
-        "CIS Control": ""
+        "Title": given_query,
     }
 
     # Regex patterns for each section
     sections = {
-        "Title": r"^(.*?)\n(?=Profile Applicability|Description|Rationale|Audit|Remediation|References|CIS Controls)",
         "Profile Applicability": r"Profile Applicability:\s*(.*?)\n(?=Description|Rationale|Audit|Remediation|References|CIS Controls|$)",
         "Description": r"Description:\s*(.*?)\n(?=Rationale|Audit|Remediation|References|CIS Controls|$)",
         "Rationale": r"Rationale:\s*(.*?)\n(?=Audit|Remediation|References|CIS Controls|$)",
@@ -175,20 +171,20 @@ def query(given_query):
     # Remove page numbers and unwanted text
     text = re.sub(r"Page \d+", "", text)
 
-    # Extract each section using regex
+    # Extract each section using regex, and only add non-empty sections to `data`
     for section, pattern in sections.items():
         match = re.search(pattern, text, re.DOTALL)  # DOTALL makes '.' match newlines too
         if match:
-            data[section] = match.group(1).strip() 
-    
-    return data 
+            section_content = match.group(1).strip()
+            if section_content:  # Only add the section if it's not empty
+                data[section] = section_content
 
+    return data
 
 
 
 header_list , index_list , key_list  = extract_header_index_from_pdf()
-for keyl in key_list:
-    print(keyl)
+
 results = []
 for key in key_list:
     result = query(key) 
