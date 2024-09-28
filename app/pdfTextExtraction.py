@@ -107,6 +107,7 @@ def calculate_page_ranges(page_dict):
     
     return page_ranges
 
+@st.cache_data
 def extract_header_index_from_pdf(file_bytes):
     # Open the PDF document
     pdf_document = fitz.open(stream=file_bytes, filetype="pdf")
@@ -184,17 +185,3 @@ def query(file_bytes, given_query, index_list):
                 data[section] = section_content
 
     return data
-
-
-# header_list , index_list , key_list  = extract_header_index_from_pdf()
-
-# results = []
-# for key in key_list:
-#     result = query(key) 
-#     results.append(result) 
-
-# # Write the results to a JSON file
-# with open('output/'+file_name+'.json', 'w') as json_file:
-#     json.dump(results, json_file, indent=4) 
-
-# print("Data has been written to "+file_name+".json")
