@@ -3,7 +3,6 @@ docs
 
 __pycache__
 *.env
-output
 generated-scripts
 **/saved_scripts.json
 **/saved_steps.json

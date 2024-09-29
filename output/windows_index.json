@@ -1,0 +1,3118 @@
+{
+    "Table of Contents Terms of Use": [
+        1,
+        1
+    ],
+    "Table of Contents": [
+        2,
+        23
+    ],
+    "Overview": [
+        24,
+        23
+    ],
+    "Intended Audience": [
+        24,
+        24
+    ],
+    "Consensus Guidance": [
+        25,
+        25
+    ],
+    "Typographical Conventions": [
+        26,
+        26
+    ],
+    "Recommendation Definitions": [
+        27,
+        26
+    ],
+    "Title": [
+        27,
+        26
+    ],
+    "Assessment Status": [
+        27,
+        26
+    ],
+    "Automated": [
+        27,
+        26
+    ],
+    "Manual": [
+        27,
+        26
+    ],
+    "Profile": [
+        27,
+        26
+    ],
+    "Description": [
+        27,
+        26
+    ],
+    "Rationale Statement": [
+        27,
+        27
+    ],
+    "Impact Statement": [
+        28,
+        27
+    ],
+    "Audit Procedure": [
+        28,
+        27
+    ],
+    "Remediation Procedure": [
+        28,
+        27
+    ],
+    "Default Value": [
+        28,
+        27
+    ],
+    "References": [
+        28,
+        27
+    ],
+    "CIS Critical Security Controls\u00ae (CIS Controls\u00ae)": [
+        28,
+        28
+    ],
+    "Profile Definitions": [
+        29,
+        30
+    ],
+    "Acknowledgements": [
+        31,
+        31
+    ],
+    "Recommendations": [
+        32,
+        31
+    ],
+    "1 Account Policies": [
+        32,
+        31
+    ],
+    "1.1 Password Policy": [
+        32,
+        34
+    ],
+    "1.1.2 (L1) Ensure 'Maximum password age' is set to '365 or fewer days, but not 0' (Automated)": [
+        35,
+        36
+    ],
+    "1.1.3 (L1) Ensure 'Minimum password age' is set to '1 or more day(s)' (Automated)": [
+        37,
+        40
+    ],
+    "1.1.5 (L1) Ensure 'Password must meet complexity requirements' is set to 'Enabled' (Automated)": [
+        41,
+        43
+    ],
+    "1.1.6 (L1) Ensure 'Relax minimum password length limits' is set to 'Enabled' (Automated)": [
+        44,
+        45
+    ],
+    "1.1.7 (L1) Ensure 'Store passwords using reversible encryption' is set to 'Disabled' (Automated)": [
+        46,
+        47
+    ],
+    "1.2 Account Lockout Policy": [
+        48,
+        48
+    ],
+    "1.2.1 (L1) Ensure 'Account lockout duration' is set to '15 or more minute(s)' (Automated)": [
+        49,
+        50
+    ],
+    "1.2.2 (L1) Ensure 'Account lockout threshold' is set to '5 or fewer invalid logon attempt(s), but not 0' (Automated)": [
+        51,
+        52
+    ],
+    "1.2.3 (L1) Ensure 'Allow Administrator account lockout' is set to 'Enabled' (MS only) (Manual)": [
+        53,
+        54
+    ],
+    "1.2.4 (L1) Ensure 'Reset account lockout counter after' is set to '15 or more minute(s)' (Automated)": [
+        55,
+        57
+    ],
+    "2 Local Policies": [
+        58,
+        57
+    ],
+    "2.1 Audit Policy": [
+        58,
+        57
+    ],
+    "2.2 User Rights Assignment": [
+        58,
+        58
+    ],
+    "2.2.1 (L1) Ensure 'Access Credential Manager as a trusted caller' is set to 'No One' (Automated)": [
+        59,
+        60
+    ],
+    "2.2.2 (L1) Ensure 'Access this computer from the network' is set to 'Administrators, Authenticated Users, ENTERPRISE DOMAIN CONTROLLERS' (DC only) (Automated)": [
+        61,
+        62
+    ],
+    "2.2.3 (L1) Ensure 'Access this computer from the network' is set to 'Administrators, Authenticated Users' (MS only) (Automated)": [
+        63,
+        64
+    ],
+    "2.2.4 (L1) Ensure 'Act as part of the operating system' is set to 'No One' (Automated)": [
+        65,
+        66
+    ],
+    "2.2.5 (L1) Ensure 'Add workstations to domain' is set to 'Administrators' (DC only) (Automated)": [
+        67,
+        68
+    ],
+    "2.2.6 (L1) Ensure 'Adjust memory quotas for a process' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE' (Automated)": [
+        69,
+        70
+    ],
+    "2.2.7 (L1) Ensure 'Allow log on locally' is set to 'Administrators, ENTERPRISE DOMAIN CONTROLLERS' (DC only) (Automated)": [
+        71,
+        72
+    ],
+    "2.2.8 (L1) Ensure 'Allow log on locally' is set to 'Administrators' (MS only) (Automated)": [
+        73,
+        74
+    ],
+    "2.2.9 (L1) Ensure 'Allow log on through Remote Desktop Services' is set to 'Administrators' (DC only) (Automated)": [
+        75,
+        76
+    ],
+    "2.2.10 (L1) Ensure 'Allow log on through Remote Desktop Services' is set to 'Administrators, Remote Desktop Users' (MS only) (Automated)": [
+        77,
+        78
+    ],
+    "2.2.11 (L1) Ensure 'Back up files and directories' is set to 'Administrators' (Automated)": [
+        79,
+        80
+    ],
+    "2.2.12 (L1) Ensure 'Change the system time' is set to 'Administrators, LOCAL SERVICE' (Automated)": [
+        81,
+        83
+    ],
+    "2.2.13 (L1) Ensure 'Change the time zone' is set to 'Administrators, LOCAL SERVICE' (Automated)": [
+        84,
+        85
+    ],
+    "2.2.14 (L1) Ensure 'Create a pagefile' is set to 'Administrators' (Automated)": [
+        86,
+        87
+    ],
+    "2.2.15 (L1) Ensure 'Create a token object' is set to 'No One' (Automated)": [
+        88,
+        89
+    ],
+    "2.2.16 (L1) Ensure 'Create global objects' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE' (Automated)": [
+        90,
+        91
+    ],
+    "2.2.17 (L1) Ensure 'Create permanent shared objects' is set to 'No One' (Automated)": [
+        92,
+        93
+    ],
+    "2.2.18 (L1) Ensure 'Create symbolic links' is set to 'Administrators' (DC only) (Automated)": [
+        94,
+        97
+    ],
+    "2.2.20 (L1) Ensure 'Debug programs' is set to 'Administrators' (Automated)": [
+        98,
+        99
+    ],
+    "2.2.21 (L1) Ensure 'Deny access to this computer from the network' to include 'Guests' (DC only) (Automated)": [
+        100,
+        103
+    ],
+    "2.2.23 (L1) Ensure 'Deny log on as a batch job' to include 'Guests' (Automated)": [
+        104,
+        105
+    ],
+    "2.2.24 (L1) Ensure 'Deny log on as a service' to include 'Guests' (Automated)": [
+        106,
+        107
+    ],
+    "2.2.25 (L1) Ensure 'Deny log on locally' to include 'Guests' (Automated)": [
+        108,
+        109
+    ],
+    "2.2.26 (L1) Ensure 'Deny log on through Remote Desktop Services' to include 'Guests' (DC only) (Automated)": [
+        110,
+        111
+    ],
+    "2.2.27 (L1) Ensure 'Deny log on through Remote Desktop Services' is set to 'Guests, Local account' (MS only) (Automated)": [
+        112,
+        113
+    ],
+    "2.2.28 (L1) Ensure 'Enable computer and user accounts to be trusted for delegation' is set to 'Administrators' (DC only) (Automated)": [
+        114,
+        115
+    ],
+    "2.2.29 (L1) Ensure 'Enable computer and user accounts to be trusted for delegation' is set to 'No One' (MS only) (Automated)": [
+        116,
+        117
+    ],
+    "2.2.30 (L1) Ensure 'Force shutdown from a remote system' is set to 'Administrators' (Automated)": [
+        118,
+        119
+    ],
+    "2.2.31 (L1) Ensure 'Generate security audits' is set to 'LOCAL SERVICE, NETWORK SERVICE' (Automated)": [
+        120,
+        121
+    ],
+    "2.2.32 (L1) Ensure 'Impersonate a client after authentication' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE' (DC only) (Automated)": [
+        122,
+        123
+    ],
+    "2.2.33 (L1) Ensure 'Impersonate a client after authentication' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE' and (when the Web Server (IIS) Role with Web Services Role Service is installed) 'IIS_IUSRS' (MS only) (Automated)": [
+        124,
+        125
+    ],
+    "2.2.34 (L1) Ensure 'Increase scheduling priority' is set to 'Administrators, Window Manager\\Window Manager Group' (Automated)": [
+        126,
+        129
+    ],
+    "2.2.36 (L1) Ensure 'Lock pages in memory' is set to 'No One' (Automated)": [
+        130,
+        133
+    ],
+    "2.2.38 (L1) Ensure 'Manage auditing and security log' is set to 'Administrators' and (when Exchange is running in the environment) 'Exchange Servers' (DC only) (Automated)": [
+        134,
+        135
+    ],
+    "2.2.39 (L1) Ensure 'Manage auditing and security log' is set to 'Administrators' (MS only) (Automated)": [
+        136,
+        137
+    ],
+    "2.2.40 (L1) Ensure 'Modify an object label' is set to 'No One' (Automated)": [
+        138,
+        139
+    ],
+    "2.2.41 (L1) Ensure 'Modify firmware environment values' is set to 'Administrators' (Automated)": [
+        140,
+        141
+    ],
+    "2.2.42 (L1) Ensure 'Perform volume maintenance tasks' is set to 'Administrators' (Automated)": [
+        142,
+        143
+    ],
+    "2.2.43 (L1) Ensure 'Profile single process' is set to 'Administrators' (Automated)": [
+        144,
+        145
+    ],
+    "2.2.44 (L1) Ensure 'Profile system performance' is set to 'Administrators, NT SERVICE\\WdiServiceHost' (Automated)": [
+        146,
+        147
+    ],
+    "2.2.45 (L1) Ensure 'Replace a process level token' is set to 'LOCAL SERVICE, NETWORK SERVICE' (Automated)": [
+        148,
+        149
+    ],
+    "2.2.46 (L1) Ensure 'Restore files and directories' is set to 'Administrators' (Automated)": [
+        150,
+        151
+    ],
+    "2.2.47 (L1) Ensure 'Shut down the system' is set to 'Administrators' (Automated)": [
+        152,
+        153
+    ],
+    "2.2.48 (L1) Ensure 'Synchronize directory service data' is set to 'No One' (DC only) (Automated)": [
+        154,
+        155
+    ],
+    "2.2.49 (L1) Ensure 'Take ownership of files or other objects' is set to 'Administrators' (Automated)": [
+        156,
+        157
+    ],
+    "2.3 Security Options": [
+        158,
+        157
+    ],
+    "2.3.1 Accounts": [
+        158,
+        158
+    ],
+    "2.3.1.1 (L1) Ensure 'Accounts: Block Microsoft accounts' is set to 'Users can't add or log on with Microsoft accounts' (Automated)": [
+        159,
+        160
+    ],
+    "2.3.1.2 (L1) Ensure 'Accounts: Guest account status' is set to 'Disabled' (MS only) (Automated)": [
+        161,
+        162
+    ],
+    "2.3.1.3 (L1) Ensure 'Accounts: Limit local account use of blank passwords to console logon only' is set to 'Enabled' (Automated)": [
+        163,
+        164
+    ],
+    "2.3.1.4 (L1) Configure 'Accounts: Rename administrator account' (Automated)": [
+        165,
+        166
+    ],
+    "2.3.1.5 (L1) Configure 'Accounts: Rename guest account' (Automated)": [
+        167,
+        168
+    ],
+    "2.3.2 Audit": [
+        169,
+        169
+    ],
+    "2.3.2.1 (L1) Ensure 'Audit: Force audit policy subcategory settings (Windows Vista or later) to override audit policy category settings' is set to 'Enabled' (Automated)": [
+        170,
+        171
+    ],
+    "2.3.2.2 (L1) Ensure 'Audit: Shut down system immediately if unable to log security audits' is set to 'Disabled' (Automated)": [
+        172,
+        173
+    ],
+    "2.3.3 DCOM": [
+        174,
+        173
+    ],
+    "2.3.4 Devices": [
+        174,
+        174
+    ],
+    "2.3.4.1 (L1) Ensure 'Devices: Prevent users from installing printer drivers' is set to 'Enabled' (Automated)": [
+        175,
+        177
+    ],
+    "2.3.5.1 (L1) Ensure 'Domain controller: Allow server operators to schedule tasks' is set to 'Disabled' (DC only) (Automated)": [
+        178,
+        179
+    ],
+    "2.3.5.2 (L1) Ensure 'Domain controller: Allow vulnerable Netlogon secure channel connections' is set to 'Not Configured' (DC Only) (Automated)": [
+        180,
+        181
+    ],
+    "2.3.5.3 (L1) Ensure 'Domain controller: LDAP server channel binding token requirements' is set to 'Always' (DC Only) (Automated)": [
+        182,
+        184
+    ],
+    "2.3.5.4 (L1) Ensure 'Domain controller: LDAP server signing requirements' is set to 'Require signing' (DC only) (Automated)": [
+        185,
+        187
+    ],
+    "2.3.5.5 (L1) Ensure 'Domain controller: Refuse machine account password changes' is set to 'Disabled' (DC only) (Automated)": [
+        188,
+        189
+    ],
+    "2.3.6 Domain member": [
+        190,
+        190
+    ],
+    "2.3.6.1 (L1) Ensure 'Domain member: Digitally encrypt or sign secure channel data (always)' is set to 'Enabled' (Automated)": [
+        191,
+        193
+    ],
+    "2.3.6.2 (L1) Ensure 'Domain member: Digitally encrypt secure channel data (when possible)' is set to 'Enabled' (Automated)": [
+        194,
+        195
+    ],
+    "2.3.6.3 (L1) Ensure 'Domain member: Digitally sign secure channel data (when possible)' is set to 'Enabled' (Automated)": [
+        196,
+        197
+    ],
+    "2.3.6.4 (L1) Ensure 'Domain member: Disable machine account password changes' is set to 'Disabled' (Automated)": [
+        198,
+        199
+    ],
+    "or fewer days, but not 0' (Automated)": [
+        200,
+        201
+    ],
+    "2.3.6.6 (L1) Ensure 'Domain member: Require strong (Windows 2000 or later) session key' is set to 'Enabled' (Automated)": [
+        202,
+        203
+    ],
+    "2.3.7 Interactive logon": [
+        204,
+        204
+    ],
+    "2.3.7.1 (L1) Ensure 'Interactive logon: Do not require CTRL+ALT+DEL' is set to 'Disabled' (Automated)": [
+        205,
+        206
+    ],
+    "2.3.7.2 (L1) Ensure 'Interactive logon: Don't display last signed-in' is set to 'Enabled' (Automated)": [
+        207,
+        208
+    ],
+    "2.3.7.3 (L1) Ensure 'Interactive logon: Machine inactivity limit' is set to '900 or fewer second(s), but not 0' (Automated)": [
+        209,
+        210
+    ],
+    "2.3.7.4 (L1) Configure 'Interactive logon: Message text for users attempting to log on' (Automated)": [
+        211,
+        212
+    ],
+    "2.3.7.5 (L1) Configure 'Interactive logon: Message title for users attempting to log on' (Automated)": [
+        213,
+        214
+    ],
+    "2.3.7.6 (L2) Ensure 'Interactive logon: Number of previous logons to cache (in case domain controller is not available)' is set to '4 or fewer logon(s)' (MS only) (Automated)": [
+        215,
+        220
+    ],
+    "2.3.7.9 (L1) Ensure 'Interactive logon: Smart card removal behavior' is set to 'Lock Workstation' or higher (Automated)": [
+        221,
+        222
+    ],
+    "2.3.8 Microsoft network client": [
+        223,
+        223
+    ],
+    "2.3.8.1 (L1) Ensure 'Microsoft network client: Digitally sign communications (always)' is set to 'Enabled' (Automated)": [
+        224,
+        226
+    ],
+    "2.3.8.2 (L1) Ensure 'Microsoft network client: Digitally sign communications (if server agrees)' is set to 'Enabled' (Automated)": [
+        227,
+        229
+    ],
+    "2.3.8.3 (L1) Ensure 'Microsoft network client: Send unencrypted password to third-party SMB servers' is set to 'Disabled' (Automated)": [
+        230,
+        231
+    ],
+    "2.3.9 Microsoft network server": [
+        232,
+        232
+    ],
+    "2.3.9.1 (L1) Ensure 'Microsoft network server: Amount of idle time required before suspending session' is set to '15 or fewer minute(s)' (Automated)": [
+        233,
+        234
+    ],
+    "2.3.9.2 (L1) Ensure 'Microsoft network server: Digitally sign communications (always)' is set to 'Enabled' (Automated)": [
+        235,
+        237
+    ],
+    "2.3.9.3 (L1) Ensure 'Microsoft network server: Digitally sign communications (if client agrees)' is set to 'Enabled' (Automated)": [
+        238,
+        240
+    ],
+    "2.3.9.4 (L1) Ensure 'Microsoft network server: Disconnect clients when logon hours expire' is set to 'Enabled' (Automated)": [
+        241,
+        242
+    ],
+    "2.3.9.5 (L1) Ensure 'Microsoft network server: Server SPN target name validation level' is set to 'Accept if provided by client' or higher (MS only) (Automated)": [
+        243,
+        245
+    ],
+    "2.3.10 Network access": [
+        246,
+        246
+    ],
+    "2.3.10.1 (L1) Ensure 'Network access: Allow anonymous SID/Name translation' is set to 'Disabled' (Automated)": [
+        247,
+        248
+    ],
+    "2.3.10.2 (L1) Ensure 'Network access: Do not allow anonymous enumeration of SAM accounts' is set to 'Enabled' (MS only) (Automated)": [
+        249,
+        250
+    ],
+    "2.3.10.3 (L1) Ensure 'Network access: Do not allow anonymous enumeration of SAM accounts and shares' is set to 'Enabled' (MS only) (Automated)": [
+        251,
+        252
+    ],
+    "2.3.10.4 (L2) Ensure 'Network access: Do not allow storage of passwords and credentials for network authentication' is set to 'Enabled' (Automated)": [
+        253,
+        254
+    ],
+    "2.3.10.5 (L1) Ensure 'Network access: Let Everyone permissions apply to anonymous users' is set to 'Disabled' (Automated)": [
+        255,
+        256
+    ],
+    "2.3.10.6 (L1) Configure 'Network access: Named Pipes that can be accessed anonymously' (DC only) (Automated)": [
+        257,
+        258
+    ],
+    "2.3.10.7 (L1) Configure 'Network access: Named Pipes that can be accessed anonymously' (MS only) (Automated)": [
+        259,
+        260
+    ],
+    "2.3.10.8 (L1) Configure 'Network access: Remotely accessible registry paths' is configured (Automated)": [
+        261,
+        262
+    ],
+    "2.3.10.9 (L1) Configure 'Network access: Remotely accessible registry paths and sub-paths' is configured (Automated)": [
+        263,
+        266
+    ],
+    "2.3.10.10 (L1) Ensure 'Network access: Restrict anonymous access to Named Pipes and Shares' is set to 'Enabled' (Automated)": [
+        267,
+        269
+    ],
+    "2.3.10.11 (L1) Ensure 'Network access: Restrict clients allowed to make remote calls to SAM' is set to 'Administrators: Remote Access: Allow' (MS only) (Automated)": [
+        270,
+        271
+    ],
+    "2.3.10.12 (L1) Ensure 'Network access: Shares that can be accessed anonymously' is set to 'None' (Automated)": [
+        272,
+        273
+    ],
+    "2.3.10.13 (L1) Ensure 'Network access: Sharing and security model for local accounts' is set to 'Classic - local users authenticate as themselves' (Automated)": [
+        274,
+        275
+    ],
+    "2.3.11 Network security": [
+        276,
+        276
+    ],
+    "2.3.11.1 (L1) Ensure 'Network security: Allow Local System to use computer identity for NTLM' is set to 'Enabled' (Automated)": [
+        277,
+        278
+    ],
+    "2.3.11.2 (L1) Ensure 'Network security: Allow LocalSystem NULL session fallback' is set to 'Disabled' (Automated)": [
+        279,
+        280
+    ],
+    "2.3.11.3 (L1) Ensure 'Network Security: Allow PKU2U authentication requests to this computer to use online identities' is set to 'Disabled' (Automated)": [
+        281,
+        285
+    ],
+    "2.3.11.5 (L1) Ensure 'Network security: Do not store LAN Manager hash value on next password change' is set to 'Enabled' (Automated)": [
+        286,
+        287
+    ],
+    "2.3.11.6 (L1) Ensure 'Network security: Force logoff when logon hours expire' is set to 'Enabled' (Manual)": [
+        288,
+        289
+    ],
+    "2.3.11.7 (L1) Ensure 'Network security: LAN Manager authentication level' is set to 'Send NTLMv2 response only. Refuse LM & NTLM' (Automated)": [
+        290,
+        292
+    ],
+    "2.3.11.8 (L1) Ensure 'Network security: LDAP client signing requirements' is set to 'Negotiate signing' or higher (Automated)": [
+        293,
+        294
+    ],
+    "2.3.11.9 (L1) Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) clients' is set to 'Require NTLMv2 session security, Require 128-bit encryption' (Automated)": [
+        295,
+        296
+    ],
+    "2.3.11.10 (L1) Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) servers' is set to 'Require NTLMv2 session security, Require 128-bit encryption' (Automated)": [
+        297,
+        298
+    ],
+    "2.3.11.11 (L1) Ensure 'Network security: Restrict NTLM: Audit Incoming NTLM Traffic' is set to 'Enable auditing for all accounts' (Automated)": [
+        299,
+        302
+    ],
+    "2.3.11.13 (L1) Ensure 'Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers' is set to 'Audit all' or higher (Automated)": [
+        303,
+        304
+    ],
+    "2.3.13 Shutdown": [
+        305,
+        305
+    ],
+    "2.3.13.1 (L1) Ensure 'Shutdown: Allow system to be shut down without having to log on' is set to 'Disabled' (Automated)": [
+        306,
+        307
+    ],
+    "2.3.14 System cryptography": [
+        308,
+        307
+    ],
+    "2.3.15 System objects": [
+        308,
+        308
+    ],
+    "2.3.15.1 (L1) Ensure 'System objects: Require case insensitivity for non-Windows subsystems' is set to 'Enabled' (Automated)": [
+        309,
+        310
+    ],
+    "2.3.15.2 (L1) Ensure 'System objects: Strengthen default permissions of internal system objects (e.g. Symbolic Links)' is set to 'Enabled' (Automated)": [
+        311,
+        312
+    ],
+    "2.3.16 System settings": [
+        313,
+        312
+    ],
+    "2.3.17 User Account Control": [
+        313,
+        313
+    ],
+    "2.3.17.1 (L1) Ensure 'User Account Control: Admin Approval Mode for the Built-in Administrator account' is set to 'Enabled' (Automated)": [
+        314,
+        315
+    ],
+    "2.3.17.2 (L1) Ensure 'User Account Control: Behavior of the elevation prompt for administrators in Admin Approval Mode' is set to 'Prompt for consent on the secure desktop' or higher (Automated)": [
+        316,
+        317
+    ],
+    "2.3.17.3 (L1) Ensure 'User Account Control: Behavior of the elevation prompt for standard users' is set to 'Automatically deny elevation requests' (Automated)": [
+        318,
+        319
+    ],
+    "2.3.17.4 (L1) Ensure 'User Account Control: Detect application installations and prompt for elevation' is set to 'Enabled' (Automated)": [
+        320,
+        321
+    ],
+    "2.3.17.5 (L1) Ensure 'User Account Control: Only elevate UIAccess applications that are installed in secure locations' is set to 'Enabled' (Automated)": [
+        322,
+        323
+    ],
+    "2.3.17.6 (L1) Ensure 'User Account Control: Run all administrators in Admin Approval Mode' is set to 'Enabled' (Automated)": [
+        324,
+        325
+    ],
+    "2.3.17.7 (L1) Ensure 'User Account Control: Switch to the secure desktop when prompting for elevation' is set to 'Enabled' (Automated)": [
+        326,
+        327
+    ],
+    "2.3.17.8 (L1) Ensure 'User Account Control: Virtualize file and registry write failures to per- user locations' is set to 'Enabled' (Automated)": [
+        328,
+        329
+    ],
+    "3 Event Log": [
+        330,
+        329
+    ],
+    "4 Restricted Groups": [
+        330,
+        329
+    ],
+    "5 System Services": [
+        330,
+        330
+    ],
+    "5.1 (L1) Ensure 'Print Spooler (Spooler)' is set to 'Disabled' (DC only) (Automated)": [
+        331,
+        334
+    ],
+    "6 Registry": [
+        335,
+        334
+    ],
+    "7 File System": [
+        335,
+        334
+    ],
+    "8 Wired Network (IEEE 802.3) Policies": [
+        335,
+        334
+    ],
+    "9 Windows Defender Firewall with Advanced Security (formerly Windows Firewall with Advanced Security)": [
+        335,
+        334
+    ],
+    "9.1 Domain Profile": [
+        335,
+        335
+    ],
+    "9.1.1 (L1) Ensure 'Windows Firewall: Domain: Firewall state' is set to 'On (recommended)' (Automated)": [
+        336,
+        337
+    ],
+    "9.1.2 (L1) Ensure 'Windows Firewall: Domain: Inbound connections' is set to 'Block (default)' (Automated)": [
+        338,
+        339
+    ],
+    "9.1.3 (L1) Ensure 'Windows Firewall: Domain: Settings: Display a notification' is set to 'No' (Automated)": [
+        340,
+        341
+    ],
+    "9.1.4 (L1) Ensure 'Windows Firewall: Domain: Logging: Name' is set to '%SystemRoot%\\System32\\logfiles\\firewall\\domainfw.log' (Automated)": [
+        342,
+        343
+    ],
+    "9.1.5 (L1) Ensure 'Windows Firewall: Domain: Logging: Size limit (KB)' is set to '16,384 KB or greater' (Automated)": [
+        344,
+        345
+    ],
+    "9.1.6 (L1) Ensure 'Windows Firewall: Domain: Logging: Log dropped packets' is set to 'Yes' (Automated)": [
+        346,
+        347
+    ],
+    "9.1.7 (L1) Ensure 'Windows Firewall: Domain: Logging: Log successful connections' is set to 'Yes' (Automated)": [
+        348,
+        349
+    ],
+    "9.2 Private Profile": [
+        350,
+        350
+    ],
+    "9.2.1 (L1) Ensure 'Windows Firewall: Private: Firewall state' is set to 'On (recommended)' (Automated)": [
+        351,
+        352
+    ],
+    "9.2.2 (L1) Ensure 'Windows Firewall: Private: Inbound connections' is set to 'Block (default)' (Automated)": [
+        353,
+        354
+    ],
+    "9.2.3 (L1) Ensure 'Windows Firewall: Private: Settings: Display a notification' is set to 'No' (Automated)": [
+        355,
+        356
+    ],
+    "9.2.4 (L1) Ensure 'Windows Firewall: Private: Logging: Name' is set to '%SystemRoot%\\System32\\logfiles\\firewall\\privatefw.log' (Automated)": [
+        357,
+        358
+    ],
+    "9.2.5 (L1) Ensure 'Windows Firewall: Private: Logging: Size limit (KB)' is set to '16,384 KB or greater' (Automated)": [
+        359,
+        360
+    ],
+    "9.2.6 (L1) Ensure 'Windows Firewall: Private: Logging: Log dropped packets' is set to 'Yes' (Automated)": [
+        361,
+        362
+    ],
+    "9.2.7 (L1) Ensure 'Windows Firewall: Private: Logging: Log successful connections' is set to 'Yes' (Automated)": [
+        363,
+        364
+    ],
+    "9.3 Public Profile": [
+        365,
+        365
+    ],
+    "9.3.1 (L1) Ensure 'Windows Firewall: Public: Firewall state' is set to 'On (recommended)' (Automated)": [
+        366,
+        367
+    ],
+    "9.3.2 (L1) Ensure 'Windows Firewall: Public: Inbound connections' is set to 'Block (default)' (Automated)": [
+        368,
+        369
+    ],
+    "9.3.3 (L1) Ensure 'Windows Firewall: Public: Settings: Display a notification' is set to 'No' (Automated)": [
+        370,
+        371
+    ],
+    "9.3.4 (L1) Ensure 'Windows Firewall: Public: Settings: Apply local firewall rules' is set to 'No' (Automated)": [
+        372,
+        373
+    ],
+    "9.3.5 (L1) Ensure 'Windows Firewall: Public: Settings: Apply local connection security rules' is set to 'No' (Automated)": [
+        374,
+        375
+    ],
+    "9.3.6 (L1) Ensure 'Windows Firewall: Public: Logging: Name' is set to '%SystemRoot%\\System32\\logfiles\\firewall\\publicfw.log' (Automated)": [
+        376,
+        377
+    ],
+    "9.3.7 (L1) Ensure 'Windows Firewall: Public: Logging: Size limit (KB)' is set to '16,384 KB or greater' (Automated)": [
+        378,
+        379
+    ],
+    "9.3.8 (L1) Ensure 'Windows Firewall: Public: Logging: Log dropped packets' is set to 'Yes' (Automated)": [
+        380,
+        381
+    ],
+    "9.3.9 (L1) Ensure 'Windows Firewall: Public: Logging: Log successful connections' is set to 'Yes' (Automated)": [
+        382,
+        383
+    ],
+    "10 Network List Manager Policies": [
+        384,
+        383
+    ],
+    "11 Wireless Network (IEEE 802.11) Policies": [
+        384,
+        383
+    ],
+    "12 Public Key Policies": [
+        384,
+        383
+    ],
+    "13 Software Restriction Policies": [
+        384,
+        383
+    ],
+    "14 Network Access Protection NAP Client Configuration": [
+        384,
+        383
+    ],
+    "15 Application Control Policies": [
+        384,
+        383
+    ],
+    "16 IP Security Policies": [
+        384,
+        384
+    ],
+    "17 Advanced Audit Policy Configuration": [
+        385,
+        384
+    ],
+    "17.1 Account Logon": [
+        385,
+        387
+    ],
+    "17.1.2 (L1) Ensure 'Audit Kerberos Authentication Service' is set to 'Success and Failure' (DC Only) (Automated)": [
+        388,
+        389
+    ],
+    "17.1.3 (L1) Ensure 'Audit Kerberos Service Ticket Operations' is set to 'Success and Failure' (DC Only) (Automated)": [
+        390,
+        391
+    ],
+    "17.2 Account Management": [
+        392,
+        392
+    ],
+    "17.2.1 (L1) Ensure 'Audit Application Group Management' is set to 'Success and Failure' (Automated)": [
+        393,
+        394
+    ],
+    "17.2.2 (L1) Ensure 'Audit Computer Account Management' is set to include 'Success' (DC only) (Automated)": [
+        395,
+        396
+    ],
+    "17.2.3 (L1) Ensure 'Audit Distribution Group Management' is set to include 'Success' (DC only) (Automated)": [
+        397,
+        398
+    ],
+    "17.2.4 (L1) Ensure 'Audit Other Account Management Events' is set to include 'Success' (DC only) (Automated)": [
+        399,
+        400
+    ],
+    "17.2.5 (L1) Ensure 'Audit Security Group Management' is set to include 'Success' (Automated)": [
+        401,
+        403
+    ],
+    "17.2.6 (L1) Ensure 'Audit User Account Management' is set to 'Success and Failure' (Automated)": [
+        404,
+        405
+    ],
+    "17.3 Detailed Tracking": [
+        406,
+        406
+    ],
+    "17.3.1 (L1) Ensure 'Audit PNP Activity' is set to include 'Success' (Automated)": [
+        407,
+        408
+    ],
+    "17.3.2 (L1) Ensure 'Audit Process Creation' is set to include 'Success' (Automated)": [
+        409,
+        410
+    ],
+    "17.4 DS Access": [
+        411,
+        411
+    ],
+    "17.4.1 (L1) Ensure 'Audit Directory Service Access' is set to include 'Failure' (DC only) (Automated)": [
+        412,
+        413
+    ],
+    "17.4.2 (L1) Ensure 'Audit Directory Service Changes' is set to include 'Success' (DC only) (Automated)": [
+        414,
+        415
+    ],
+    "17.5 Logon/Logoff": [
+        416,
+        416
+    ],
+    "17.5.1 (L1) Ensure 'Audit Account Lockout' is set to include 'Failure' (Automated)": [
+        417,
+        420
+    ],
+    "17.5.3 (L1) Ensure 'Audit Logoff' is set to include 'Success' (Automated)": [
+        421,
+        422
+    ],
+    "17.5.4 (L1) Ensure 'Audit Logon' is set to 'Success and Failure' (Automated)": [
+        423,
+        424
+    ],
+    "17.5.5 (L1) Ensure 'Audit Other Logon/Logoff Events' is set to 'Success and Failure' (Automated)": [
+        425,
+        426
+    ],
+    "17.5.6 (L1) Ensure 'Audit Special Logon' is set to include 'Success' (Automated)": [
+        427,
+        428
+    ],
+    "17.6 Object Access": [
+        429,
+        429
+    ],
+    "17.6.1 (L1) Ensure 'Audit Detailed File Share' is set to include 'Failure' (Automated)": [
+        430,
+        431
+    ],
+    "17.6.2 (L1) Ensure 'Audit File Share' is set to 'Success and Failure' (Automated)": [
+        432,
+        433
+    ],
+    "17.6.3 (L1) Ensure 'Audit Other Object Access Events' is set to 'Success and Failure' (Automated)": [
+        434,
+        437
+    ],
+    "17.7 Policy Change": [
+        438,
+        438
+    ],
+    "17.7.1 (L1) Ensure 'Audit Audit Policy Change' is set to include 'Success' (Automated)": [
+        439,
+        440
+    ],
+    "17.7.2 (L1) Ensure 'Audit Authentication Policy Change' is set to include 'Success' (Automated)": [
+        441,
+        442
+    ],
+    "17.7.3 (L1) Ensure 'Audit Authorization Policy Change' is set to include 'Success' (Automated)": [
+        443,
+        444
+    ],
+    "17.7.4 (L1) Ensure 'Audit MPSSVC Rule-Level Policy Change' is set to 'Success and Failure' (Automated)": [
+        445,
+        446
+    ],
+    "17.7.5 (L1) Ensure 'Audit Other Policy Change Events' is set to include 'Failure' (Automated)": [
+        447,
+        448
+    ],
+    "17.8 Privilege Use": [
+        449,
+        449
+    ],
+    "17.8.1 (L1) Ensure 'Audit Sensitive Privilege Use' is set to 'Success and Failure' (Automated)": [
+        450,
+        451
+    ],
+    "17.9 System": [
+        452,
+        452
+    ],
+    "17.9.1 (L1) Ensure 'Audit IPsec Driver' is set to 'Success and Failure' (Automated)": [
+        453,
+        455
+    ],
+    "17.9.2 (L1) Ensure 'Audit Other System Events' is set to 'Success and Failure' (Automated)": [
+        456,
+        457
+    ],
+    "17.9.3 (L1) Ensure 'Audit Security State Change' is set to include 'Success' (Automated)": [
+        458,
+        459
+    ],
+    "17.9.4 (L1) Ensure 'Audit Security System Extension' is set to include 'Success' (Automated)": [
+        460,
+        461
+    ],
+    "17.9.5 (L1) Ensure 'Audit System Integrity' is set to 'Success and Failure' (Automated)": [
+        462,
+        463
+    ],
+    "18 Administrative Templates (Computer)": [
+        464,
+        463
+    ],
+    "18.1 Control Panel": [
+        464,
+        463
+    ],
+    "18.1.1 Personalization": [
+        464,
+        466
+    ],
+    "18.1.1.2 (L1) Ensure 'Prevent enabling lock screen slide show' is set to 'Enabled' (Automated)": [
+        467,
+        468
+    ],
+    "18.1.2 Regional and Language Options": [
+        469,
+        468
+    ],
+    "18.1.2.1 Handwriting personalization": [
+        469,
+        469
+    ],
+    "18.1.2.2 (L1) Ensure 'Allow users to enable online speech recognition services' is set to 'Disabled' (Automated)": [
+        470,
+        471
+    ],
+    "18.1.3 (L2) Ensure 'Allow Online Tips' is set to 'Disabled' (Automated)": [
+        472,
+        473
+    ],
+    "18.2 Desktop": [
+        474,
+        473
+    ],
+    "18.3 LAPS (legacy)": [
+        474,
+        473
+    ],
+    "18.4 MS Security Guide": [
+        474,
+        474
+    ],
+    "18.4.1 (L1) Ensure 'Apply UAC restrictions to local accounts on network logons' is set to 'Enabled' (MS only) (Automated)": [
+        475,
+        476
+    ],
+    "18.4.2 (L1) Ensure 'Configure RPC packet level privacy setting for incoming connections' is set to 'Enabled' (Automated)": [
+        477,
+        478
+    ],
+    "18.4.3 (L1) Ensure 'Configure SMB v1 client driver' is set to 'Enabled: Disable driver (recommended)' (Automated)": [
+        479,
+        480
+    ],
+    "18.4.4 (L1) Ensure 'Configure SMB v1 server' is set to 'Disabled' (Automated)": [
+        481,
+        482
+    ],
+    "18.4.5 (L1) Ensure 'Enable Certificate Padding' is set to 'Enabled' (Automated)": [
+        483,
+        484
+    ],
+    "18.4.6 (L1) Ensure 'Enable Structured Exception Handling Overwrite Protection (SEHOP)' is set to 'Enabled' (Automated)": [
+        485,
+        486
+    ],
+    "18.4.7 (L1) Ensure 'NetBT NodeType configuration' is set to 'Enabled: P-node (recommended)' (Automated)": [
+        487,
+        488
+    ],
+    "18.4.8 (L1) Ensure 'WDigest Authentication' is set to 'Disabled' (Automated)": [
+        489,
+        490
+    ],
+    "18.5 MSS (Legacy)": [
+        491,
+        491
+    ],
+    "18.5.1 (L1) Ensure 'MSS: (AutoAdminLogon) Enable Automatic Logon' is set to 'Disabled' (Automated)": [
+        492,
+        493
+    ],
+    "18.5.2 (L1) Ensure 'MSS: (DisableIPSourceRouting IPv6) IP source routing protection level' is set to 'Enabled: Highest protection, source routing is completely disabled' (Automated)": [
+        494,
+        495
+    ],
+    "18.5.3 (L1) Ensure 'MSS: (DisableIPSourceRouting) IP source routing protection level' is set to 'Enabled: Highest protection, source routing is completely disabled' (Automated)": [
+        496,
+        497
+    ],
+    "18.5.4 (L1) Ensure 'MSS: (EnableICMPRedirect) Allow ICMP redirects to override OSPF generated routes' is set to 'Disabled' (Automated)": [
+        498,
+        499
+    ],
+    "18.5.5 (L2) Ensure 'MSS: (KeepAliveTime) How often keep-alive packets are sent in milliseconds' is set to 'Enabled: 300,000 or 5 minutes' (Automated)": [
+        500,
+        501
+    ],
+    "18.5.6 (L1) Ensure 'MSS: (NoNameReleaseOnDemand) Allow the computer to ignore NetBIOS name release requests except from WINS servers' is set to 'Enabled' (Automated)": [
+        502,
+        503
+    ],
+    "18.5.7 (L2) Ensure 'MSS: (PerformRouterDiscovery) Allow IRDP to detect and configure Default Gateway addresses' is set to 'Disabled' (Automated)": [
+        504,
+        505
+    ],
+    "18.5.8 (L1) Ensure 'MSS: (SafeDllSearchMode) Enable Safe DLL search mode' is set to 'Enabled' (Automated)": [
+        506,
+        507
+    ],
+    "18.5.9 (L1) Ensure 'MSS: (ScreenSaverGracePeriod) The time in seconds before the screen saver grace period expires' is set to 'Enabled: 5 or fewer seconds' (Automated)": [
+        508,
+        509
+    ],
+    "18.5.10 (L2) Ensure 'MSS: (TcpMaxDataRetransmissions IPv6) How many times unacknowledged data is retransmitted' is set to 'Enabled: 3' (Automated)": [
+        510,
+        511
+    ],
+    "18.5.11 (L2) Ensure 'MSS: (TcpMaxDataRetransmissions) How many times unacknowledged data is retransmitted' is set to 'Enabled: 3' (Automated)": [
+        512,
+        513
+    ],
+    "18.5.12 (L1) Ensure 'MSS: (WarningLevel) Percentage threshold for the security event log at which the system will generate a warning' is set to 'Enabled: 90% or less' (Automated)": [
+        514,
+        515
+    ],
+    "18.6 Network": [
+        516,
+        515
+    ],
+    "18.6.1 Background Intelligent Transfer Service (BITS)": [
+        516,
+        515
+    ],
+    "18.6.2 BranchCache": [
+        516,
+        515
+    ],
+    "18.6.3 DirectAccess Client Experience Settings": [
+        516,
+        515
+    ],
+    "18.6.4 DNS Client": [
+        516,
+        516
+    ],
+    "18.6.4.1 (L1) Ensure 'Configure DNS over HTTPS (DoH) name resolution' is set to 'Enabled: Allow DoH' or higher (Automated)": [
+        517,
+        518
+    ],
+    "18.6.4.2 (L1) Ensure 'Configure NetBIOS settings' is set to 'Enabled: Disable NetBIOS name resolution on public networks' (Automated)": [
+        519,
+        520
+    ],
+    "18.6.4.3 (L1) Ensure 'Turn off multicast name resolution' is set to 'Enabled' (Automated)": [
+        521,
+        522
+    ],
+    "18.6.5 Fonts": [
+        523,
+        523
+    ],
+    "18.6.5.1 (L2) Ensure 'Enable Font Providers' is set to 'Disabled' (Automated)": [
+        524,
+        525
+    ],
+    "18.6.6 Hotspot Authentication": [
+        526,
+        525
+    ],
+    "18.6.7 Lanman Server": [
+        526,
+        525
+    ],
+    "18.6.8 Lanman Workstation": [
+        526,
+        526
+    ],
+    "18.6.8.1 (L1) Ensure 'Enable insecure guest logons' is set to 'Disabled' (Automated)": [
+        527,
+        528
+    ],
+    "18.6.9 Link-Layer Topology Discovery": [
+        529,
+        531
+    ],
+    "18.6.9.2 (L2) Ensure 'Turn on Responder (RSPNDR) driver' is set to 'Disabled' (Automated)": [
+        532,
+        533
+    ],
+    "18.6.10 Microsoft Peer-to-Peer Networking Services": [
+        534,
+        533
+    ],
+    "18.6.10.1 Peer Name Resolution Protocol": [
+        534,
+        534
+    ],
+    "18.6.10.2 (L2) Ensure 'Turn off Microsoft Peer-to-Peer Networking Services' is set to 'Enabled' (Automated)": [
+        535,
+        536
+    ],
+    "18.6.11 Network Connections": [
+        537,
+        536
+    ],
+    "18.6.11.1 Windows Defender Firewall (formerly Windows Firewall)": [
+        537,
+        537
+    ],
+    "18.6.11.2 (L1) Ensure 'Prohibit installation and configuration of Network Bridge on your DNS domain network' is set to 'Enabled' (Automated)": [
+        538,
+        539
+    ],
+    "18.6.11.3 (L1) Ensure 'Prohibit use of Internet Connection Sharing on your DNS domain network' is set to 'Enabled' (Automated)": [
+        540,
+        541
+    ],
+    "18.6.11.4 (L1) Ensure 'Require domain users to elevate when setting a network's location' is set to 'Enabled' (Automated)": [
+        542,
+        543
+    ],
+    "18.6.12 Network Connectivity Status Indicator": [
+        544,
+        543
+    ],
+    "18.6.13 Network Isolation": [
+        544,
+        544
+    ],
+    "18.6.14.1 (L1) Ensure 'Hardened UNC Paths' is set to 'Enabled, with \"Require Mutual Authentication\", \"Require Integrity\", and \u201cRequire Privacy\u201d set for all NETLOGON and SYSVOL shares' (Automated)": [
+        545,
+        546
+    ],
+    "18.6.15 Offline Files": [
+        547,
+        546
+    ],
+    "18.6.16 QoS Packet Scheduler": [
+        547,
+        546
+    ],
+    "18.6.17 SNMP": [
+        547,
+        546
+    ],
+    "18.6.18 SSL Configuration Settings": [
+        547,
+        547
+    ],
+    "18.6.19.1 IPv6 Transition Technologies": [
+        548,
+        547
+    ],
+    "18.6.19.2 Parameters": [
+        548,
+        548
+    ],
+    "18.6.19.2.1 (L2) Disable IPv6 (Ensure TCPIP6 Parameter 'DisabledComponents' is set to '0xff (255)') (Automated)": [
+        549,
+        550
+    ],
+    "18.6.20 Windows Connect Now": [
+        551,
+        551
+    ],
+    "18.6.20.1 (L2) Ensure 'Configuration of wireless settings using Windows Connect Now' is set to 'Disabled' (Automated)": [
+        552,
+        553
+    ],
+    "18.6.20.2 (L2) Ensure 'Prohibit access of the Windows Connect Now wizards' is set to 'Enabled' (Automated)": [
+        554,
+        555
+    ],
+    "18.6.21 Windows Connection Manager": [
+        556,
+        556
+    ],
+    "18.6.21.1 (L1) Ensure 'Minimize the number of simultaneous connections to the Internet or a Windows Domain' is set to 'Enabled: 3 = Prevent Wi-Fi when on Ethernet' (Automated)": [
+        557,
+        560
+    ],
+    "18.7 Printers": [
+        561,
+        561
+    ],
+    "18.7.1 (L1) Ensure 'Allow Print Spooler to accept client connections' is set to 'Disabled' (Automated)": [
+        562,
+        563
+    ],
+    "18.7.2 (L1) Ensure 'Configure Redirection Guard' is set to 'Enabled: Redirection Guard Enabled' (Automated)": [
+        564,
+        565
+    ],
+    "18.7.3 (L1) Ensure 'Configure RPC connection settings: Protocol to use for outgoing RPC connections' is set to 'Enabled: RPC over TCP' (Automated)": [
+        566,
+        569
+    ],
+    "18.7.5 (L1) Ensure 'Configure RPC listener settings: Protocols to allow for incoming RPC connections' is set to 'Enabled: RPC over TCP' (Automated)": [
+        570,
+        571
+    ],
+    "18.7.6 (L1) Ensure 'Configure RPC listener settings: Authentication protocol to use for incoming RPC connections:' is set to 'Enabled: Negotiate' or higher (Automated)": [
+        572,
+        573
+    ],
+    "18.7.7 (L1) Ensure 'Configure RPC over TCP port' is set to 'Enabled: 0' (Automated)": [
+        574,
+        575
+    ],
+    "18.7.8 (L1) Ensure 'Limits print driver installation to Administrators' is set to 'Enabled' (Automated)": [
+        576,
+        577
+    ],
+    "18.7.9 (L1) Ensure 'Manage processing of Queue-specific files' is set to 'Enabled: Limit Queue-specific files to Color profiles' (Automated)": [
+        578,
+        579
+    ],
+    "18.7.10 (L1) Ensure 'Point and Print Restrictions: When installing drivers for a new connection' is set to 'Enabled: Show warning and elevation prompt' (Automated)": [
+        580,
+        581
+    ],
+    "18.7.11 (L1) Ensure 'Point and Print Restrictions: When updating drivers for an existing connection' is set to 'Enabled: Show warning and elevation prompt' (Automated)": [
+        582,
+        584
+    ],
+    "18.8 Start Menu and Taskbar": [
+        585,
+        584
+    ],
+    "18.8.1 Notifications": [
+        585,
+        587
+    ],
+    "18.9 System": [
+        588,
+        587
+    ],
+    "18.9.1 Access-Denied Assistance": [
+        588,
+        587
+    ],
+    "18.9.2 App-V": [
+        588,
+        587
+    ],
+    "18.9.3 Audit Process Creation": [
+        588,
+        588
+    ],
+    "18.9.3.1 (L1) Ensure 'Include command line in process creation events' is set to 'Enabled' (Automated)": [
+        589,
+        590
+    ],
+    "18.9.4 Credentials Delegation": [
+        591,
+        591
+    ],
+    "18.9.4.1 (L1) Ensure 'Encryption Oracle Remediation' is set to 'Enabled: Force Updated Clients' (Automated)": [
+        592,
+        593
+    ],
+    "18.9.4.2 (L1) Ensure 'Remote host allows delegation of non-exportable credentials' is set to 'Enabled' (Automated)": [
+        594,
+        595
+    ],
+    "18.9.5 Device Guard": [
+        596,
+        596
+    ],
+    "18.9.5.1 (NG) Ensure 'Turn On Virtualization Based Security' is set to 'Enabled' (Automated)": [
+        597,
+        598
+    ],
+    "18.9.5.2 (NG) Ensure 'Turn On Virtualization Based Security: Select Platform Security Level' is set to 'Secure Boot' or higher (Automated)": [
+        599,
+        600
+    ],
+    "18.9.5.3 (NG) Ensure 'Turn On Virtualization Based Security: Virtualization Based Protection of Code Integrity' is set to 'Enabled with UEFI lock' (Automated)": [
+        601,
+        602
+    ],
+    "18.9.5.4 (NG) Ensure 'Turn On Virtualization Based Security: Require UEFI Memory Attributes Table' is set to 'True (checked)' (Automated)": [
+        603,
+        604
+    ],
+    "18.9.5.5 (NG) Ensure 'Turn On Virtualization Based Security: Credential Guard Configuration' is set to 'Enabled with UEFI lock' (MS Only) (Automated)": [
+        605,
+        607
+    ],
+    "18.9.5.6 (NG) Ensure 'Turn On Virtualization Based Security: Credential Guard Configuration' is set to 'Disabled' (DC Only) (Automated)": [
+        608,
+        609
+    ],
+    "18.9.5.7 (NG) Ensure 'Turn On Virtualization Based Security: Secure Launch Configuration' is set to 'Enabled' (Automated)": [
+        610,
+        611
+    ],
+    "18.9.6 Device Health Attestation Service": [
+        612,
+        611
+    ],
+    "18.9.7 Device Installation": [
+        612,
+        611
+    ],
+    "18.9.7.1 Device Installation Restrictions": [
+        612,
+        612
+    ],
+    "18.9.7.2 (L1) Ensure 'Prevent device metadata retrieval from the Internet' is set to 'Enabled' (Automated)": [
+        613,
+        614
+    ],
+    "18.9.8 Disk NV Cache": [
+        615,
+        614
+    ],
+    "18.9.9 Disk Quotas": [
+        615,
+        614
+    ],
+    "18.9.10 Display": [
+        615,
+        614
+    ],
+    "18.9.11 Distributed COM": [
+        615,
+        614
+    ],
+    "18.9.12 Driver Installation": [
+        615,
+        615
+    ],
+    "18.9.13 Early Launch Antimalware": [
+        616,
+        616
+    ],
+    "18.9.13.1 (L1) Ensure 'Boot-Start Driver Initialization Policy' is set to 'Enabled: Good, unknown and bad but critical' (Automated)": [
+        617,
+        618
+    ],
+    "18.9.14 Enhanced Storage Access": [
+        619,
+        618
+    ],
+    "18.9.15 File Classification Infrastructure": [
+        619,
+        618
+    ],
+    "18.9.17 Filesystem (formerly NTFS Filesystem)": [
+        619,
+        618
+    ],
+    "18.9.18 Folder Redirection": [
+        619,
+        619
+    ],
+    "18.9.19 Group Policy": [
+        620,
+        619
+    ],
+    "18.9.19.1 Logging and tracing": [
+        620,
+        620
+    ],
+    "18.9.19.2 (L1) Ensure 'Configure registry policy processing: Do not apply during periodic background processing' is set to 'Enabled: FALSE' (Automated)": [
+        621,
+        622
+    ],
+    "18.9.19.3 (L1) Ensure 'Configure registry policy processing: Process even if the Group Policy objects have not changed' is set to 'Enabled: TRUE' (Automated)": [
+        623,
+        624
+    ],
+    "18.9.19.4 (L1) Ensure 'Configure security policy processing: Do not apply during periodic background processing' is set to 'Enabled: FALSE' (Automated)": [
+        625,
+        626
+    ],
+    "18.9.19.5 (L1) Ensure 'Configure security policy processing: Process even if the Group Policy objects have not changed' is set to 'Enabled: TRUE' (Automated)": [
+        627,
+        628
+    ],
+    "18.9.19.6 (L1) Ensure 'Continue experiences on this device' is set to 'Disabled' (Automated)": [
+        629,
+        630
+    ],
+    "18.9.19.7 (L1) Ensure 'Turn off background refresh of Group Policy' is set to 'Disabled' (Automated)": [
+        631,
+        632
+    ],
+    "18.9.20 Internet Communication Management": [
+        633,
+        632
+    ],
+    "18.9.20.1 Internet Communication settings": [
+        633,
+        633
+    ],
+    "18.9.20.1.1 (L1) Ensure 'Turn off downloading of print drivers over HTTP' is set to 'Enabled' (Automated)": [
+        634,
+        635
+    ],
+    "18.9.20.1.2 (L2) Ensure 'Turn off handwriting personalization data sharing' is set to 'Enabled' (Automated)": [
+        636,
+        637
+    ],
+    "18.9.20.1.3 (L2) Ensure 'Turn off handwriting recognition error reporting' is set to 'Enabled' (Automated)": [
+        638,
+        639
+    ],
+    "18.9.20.1.4 (L2) Ensure 'Turn off Internet Connection Wizard if URL connection is referring to Microsoft.com' is set to 'Enabled' (Automated)": [
+        640,
+        641
+    ],
+    "18.9.20.1.5 (L1) Ensure 'Turn off Internet download for Web publishing and online ordering wizards' is set to 'Enabled' (Automated)": [
+        642,
+        643
+    ],
+    "18.9.20.1.6 (L2) Ensure 'Turn off printing over HTTP' is set to 'Enabled' (Automated)": [
+        644,
+        645
+    ],
+    "18.9.20.1.7 (L2) Ensure 'Turn off Registration if URL connection is referring to Microsoft.com' is set to 'Enabled' (Automated)": [
+        646,
+        647
+    ],
+    "18.9.20.1.8 (L2) Ensure 'Turn off Search Companion content file updates' is set to 'Enabled' (Automated)": [
+        648,
+        649
+    ],
+    "18.9.20.1.9 (L2) Ensure 'Turn off the \"Order Prints\" picture task' is set to 'Enabled' (Automated)": [
+        650,
+        651
+    ],
+    "18.9.20.1.10 (L2) Ensure 'Turn off the \"Publish to Web\" task for files and folders' is set to 'Enabled' (Automated)": [
+        652,
+        653
+    ],
+    "18.9.20.1.11 (L2) Ensure 'Turn off the Windows Messenger Customer Experience Improvement Program' is set to 'Enabled' (Automated)": [
+        654,
+        655
+    ],
+    "18.9.20.1.12 (L2) Ensure 'Turn off Windows Customer Experience Improvement Program' is set to 'Enabled' (Automated)": [
+        656,
+        657
+    ],
+    "18.9.20.1.13 (L2) Ensure 'Turn off Windows Error Reporting' is set to 'Enabled' (Automated)": [
+        658,
+        659
+    ],
+    "18.9.21 iSCSI": [
+        660,
+        659
+    ],
+    "18.9.22 KDC": [
+        660,
+        659
+    ],
+    "18.9.23 Kerberos": [
+        660,
+        660
+    ],
+    "18.9.23.1 (L2) Ensure 'Support device authentication using certificate' is set to 'Enabled: Automatic' (Automated)": [
+        661,
+        662
+    ],
+    "18.9.24 Kernel DMA Protection": [
+        663,
+        663
+    ],
+    "18.9.24.1 (L1) Ensure 'Enumeration policy for external devices incompatible with Kernel DMA Protection' is set to 'Enabled: Block All' (Automated)": [
+        664,
+        665
+    ],
+    "18.9.25 LAPS": [
+        666,
+        666
+    ],
+    "18.9.25.1 (L1) Ensure 'Configure password backup directory' is set to 'Enabled: Active Directory' or 'Enabled: Azure Active Directory' (Automated)": [
+        667,
+        668
+    ],
+    "18.9.25.2 (L1) Ensure 'Do not allow password expiration time longer than required by policy' is set to 'Enabled' (Automated)": [
+        669,
+        670
+    ],
+    "18.9.25.3 (L1) Ensure 'Enable password encryption' is set to 'Enabled' (Automated)": [
+        671,
+        672
+    ],
+    "18.9.25.4 (L1) Ensure 'Password Settings: Password Complexity' is set to 'Enabled: Large letters + small letters + numbers + special characters' (Automated)": [
+        673,
+        674
+    ],
+    "18.9.25.5 (L1) Ensure 'Password Settings: Password Length' is set to 'Enabled: 15 or more' (Automated)": [
+        675,
+        676
+    ],
+    "18.9.25.6 (L1) Ensure 'Password Settings: Password Age (Days)' is set to 'Enabled: 30 or fewer' (Automated)": [
+        677,
+        678
+    ],
+    "or fewer hours, but not 0' (Automated)": [
+        679,
+        680
+    ],
+    "18.9.25.8 (L1) Ensure 'Post-authentication actions: Actions' is set to 'Enabled: Reset the password and logoff the managed account' or higher (Automated)": [
+        681,
+        682
+    ],
+    "18.9.26 Local Security Authority": [
+        683,
+        683
+    ],
+    "18.9.26.1 (L1) Ensure 'Allow Custom SSPs and APs to be loaded into LSASS' is set to 'Disabled' (Automated)": [
+        684,
+        685
+    ],
+    "18.9.26.2 (NG) Ensure 'Configures LSASS to run as a protected process' is set to 'Enabled: Enabled with UEFI Lock' (Automated)": [
+        686,
+        687
+    ],
+    "18.9.27 Locale Services": [
+        688,
+        688
+    ],
+    "18.9.27.1 (L2) Ensure 'Disallow copying of user input methods to the system account for sign- in' is set to 'Enabled' (Automated)": [
+        689,
+        690
+    ],
+    "18.9.28 Logon": [
+        691,
+        691
+    ],
+    "18.9.28.1 (L1) Ensure 'Block user from showing account details on sign-in' is set to 'Enabled' (Automated)": [
+        692,
+        697
+    ],
+    "18.9.28.4 (L1) Ensure 'Enumerate local users on domain-joined computers' is set to 'Disabled' (MS only) (Automated)": [
+        698,
+        699
+    ],
+    "18.9.28.5 (L1) Ensure 'Turn off app notifications on the lock screen' is set to 'Enabled' (Automated)": [
+        700,
+        701
+    ],
+    "18.9.28.6 (L1) Ensure 'Turn off picture password sign-in' is set to 'Enabled' (Automated)": [
+        702,
+        703
+    ],
+    "18.9.28.7 (L1) Ensure 'Turn on convenience PIN sign-in' is set to 'Disabled' (Automated)": [
+        704,
+        705
+    ],
+    "18.9.29 Mitigation Options": [
+        706,
+        705
+    ],
+    "18.9.30 Net Logon": [
+        706,
+        705
+    ],
+    "18.9.31 OS Policies": [
+        706,
+        706
+    ],
+    "18.9.31.1 (L2) Ensure 'Allow Clipboard synchronization across devices' is set to 'Disabled' (Automated)": [
+        707,
+        708
+    ],
+    "18.9.31.2 (L2) Ensure 'Allow upload of User Activities' is set to 'Disabled' (Automated)": [
+        709,
+        710
+    ],
+    "18.9.32 PIN Complexity": [
+        711,
+        710
+    ],
+    "18.9.33 Power Management": [
+        711,
+        710
+    ],
+    "18.9.33.1 Button Settings": [
+        711,
+        710
+    ],
+    "18.9.33.2 Energy Saver Settings": [
+        711,
+        710
+    ],
+    "18.9.33.3 Hard Disk Settings": [
+        711,
+        710
+    ],
+    "18.9.33.4 Notification Settings": [
+        711,
+        711
+    ],
+    "18.9.33.5 Power Throttling Settings": [
+        712,
+        711
+    ],
+    "18.9.33.6 Sleep Settings": [
+        712,
+        712
+    ],
+    "18.9.33.6.1 (L2) Ensure 'Allow network connectivity during connected-standby (on battery)' is set to 'Disabled' (Automated)": [
+        713,
+        714
+    ],
+    "18.9.33.6.2 (L2) Ensure 'Allow network connectivity during connected-standby (plugged in)' is set to 'Disabled' (Automated)": [
+        715,
+        716
+    ],
+    "18.9.33.6.3 (L1) Ensure 'Require a password when a computer wakes (on battery)' is set to 'Enabled' (Automated)": [
+        717,
+        718
+    ],
+    "18.9.33.6.4 (L1) Ensure 'Require a password when a computer wakes (plugged in)' is set to 'Enabled' (Automated)": [
+        719,
+        720
+    ],
+    "18.9.34 Recovery": [
+        721,
+        720
+    ],
+    "18.9.35 Remote Assistance": [
+        721,
+        721
+    ],
+    "18.9.35.1 (L1) Ensure 'Configure Offer Remote Assistance' is set to 'Disabled' (Automated)": [
+        722,
+        723
+    ],
+    "18.9.35.2 (L1) Ensure 'Configure Solicited Remote Assistance' is set to 'Disabled' (Automated)": [
+        724,
+        725
+    ],
+    "18.9.36 Remote Procedure Call": [
+        726,
+        726
+    ],
+    "18.9.36.1 (L1) Ensure 'Enable RPC Endpoint Mapper Client Authentication' is set to 'Enabled' (MS only) (Automated)": [
+        727,
+        728
+    ],
+    "18.9.36.2 (L2) Ensure 'Restrict Unauthenticated RPC clients' is set to 'Enabled: Authenticated' (MS only) (Automated)": [
+        729,
+        730
+    ],
+    "18.9.37 Removable Storage Access": [
+        731,
+        730
+    ],
+    "18.9.38 Scripts": [
+        731,
+        730
+    ],
+    "18.9.39 Security Account Manager": [
+        731,
+        731
+    ],
+    "18.9.39.1 (L1) Ensure 'Configure validation of ROCA-vulnerable WHfB keys during authentication' is set to 'Enabled: Audit' or higher (DC only) (Automated)": [
+        732,
+        733
+    ],
+    "18.9.40 Server Manager": [
+        734,
+        733
+    ],
+    "18.9.42 Shutdown": [
+        734,
+        733
+    ],
+    "18.9.43 Shutdown Options": [
+        734,
+        733
+    ],
+    "18.9.44 Storage Health": [
+        734,
+        734
+    ],
+    "18.9.45 Storage Sense": [
+        735,
+        734
+    ],
+    "18.9.46 System Restore": [
+        735,
+        734
+    ],
+    "18.9.47 Troubleshooting and Diagnostics": [
+        735,
+        734
+    ],
+    "18.9.47.1 Application Compatibility Diagnostics": [
+        735,
+        734
+    ],
+    "18.9.47.2 Corrupted File Recovery": [
+        735,
+        735
+    ],
+    "18.9.47.3 Disk Diagnostic": [
+        736,
+        735
+    ],
+    "18.9.47.4 Fault Tolerant Heap": [
+        736,
+        738
+    ],
+    "18.9.47.6 MSI Corrupted File Recovery": [
+        739,
+        738
+    ],
+    "18.9.47.7 Scheduled Maintenance": [
+        739,
+        738
+    ],
+    "18.9.47.8 Scripted Diagnostics": [
+        739,
+        738
+    ],
+    "18.9.47.9 Windows Boot Performance Diagnostics": [
+        739,
+        738
+    ],
+    "18.9.47.10 Windows Memory Leak Diagnosis": [
+        739,
+        739
+    ],
+    "18.9.47.11 Windows Performance PerfTrack": [
+        740,
+        740
+    ],
+    "18.9.47.11.1 (L2) Ensure 'Enable/Disable PerfTrack' is set to 'Disabled' (Automated)": [
+        741,
+        742
+    ],
+    "18.9.48 Trusted Platform Module Services": [
+        743,
+        742
+    ],
+    "18.9.49 User Profiles": [
+        743,
+        743
+    ],
+    "18.9.49.1 (L2) Ensure 'Turn off the advertising ID' is set to 'Enabled' (Automated)": [
+        744,
+        745
+    ],
+    "18.9.50 Windows File Protection": [
+        746,
+        745
+    ],
+    "18.9.51 Windows Time Service": [
+        746,
+        745
+    ],
+    "18.9.51.1 Time Providers": [
+        746,
+        746
+    ],
+    "18.9.51.1.1 (L1) Ensure 'Enable Windows NTP Client' is set to 'Enabled' (Automated)": [
+        747,
+        748
+    ],
+    "18.9.51.1.2 (L1) Ensure 'Enable Windows NTP Server' is set to 'Disabled' (MS only) (Automated)": [
+        749,
+        750
+    ],
+    "18.10 Windows Components": [
+        751,
+        750
+    ],
+    "18.10.1 ActiveX Installer Service": [
+        751,
+        750
+    ],
+    "18.10.2 Add features to Windows 10 (formerly Windows Anytime Upgrade)": [
+        751,
+        750
+    ],
+    "18.10.3 App Package Deployment": [
+        751,
+        751
+    ],
+    "18.10.3.1 (L2) Ensure 'Allow a Windows app to share application data between users' is set to 'Disabled' (Automated)": [
+        752,
+        753
+    ],
+    "18.10.4 App Privacy": [
+        754,
+        753
+    ],
+    "18.10.5 App runtime": [
+        754,
+        754
+    ],
+    "18.10.5.1 (L1) Ensure 'Allow Microsoft accounts to be optional' is set to 'Enabled' (Automated)": [
+        755,
+        756
+    ],
+    "18.10.6 Application Compatibility": [
+        757,
+        756
+    ],
+    "18.10.7 AutoPlay Policies": [
+        757,
+        757
+    ],
+    "18.10.7.1 (L1) Ensure 'Disallow Autoplay for non-volume devices' is set to 'Enabled' (Automated)": [
+        758,
+        759
+    ],
+    "18.10.7.2 (L1) Ensure 'Set the default behavior for AutoRun' is set to 'Enabled: Do not execute any autorun commands' (Automated)": [
+        760,
+        761
+    ],
+    "18.10.7.3 (L1) Ensure 'Turn off Autoplay' is set to 'Enabled: All drives' (Automated)": [
+        762,
+        763
+    ],
+    "18.10.8 Biometrics": [
+        764,
+        763
+    ],
+    "18.10.8.1 Facial Features": [
+        764,
+        766
+    ],
+    "18.10.9 BitLocker Drive Encryption": [
+        767,
+        766
+    ],
+    "18.10.10 Camera": [
+        767,
+        767
+    ],
+    "18.10.10.1 (L2) Ensure 'Allow Use of Camera' is set to 'Disabled' (Automated)": [
+        768,
+        769
+    ],
+    "18.10.11 Chat": [
+        770,
+        770
+    ],
+    "18.10.12.1 (L1) Ensure 'Turn off cloud consumer account state content' is set to 'Enabled' (Automated)": [
+        771,
+        772
+    ],
+    "18.10.12.2 (L2) Ensure 'Turn off cloud optimized content' is set to 'Enabled' (Automated)": [
+        773,
+        774
+    ],
+    "18.10.12.3 (L1) Ensure 'Turn off Microsoft consumer experiences' is set to 'Enabled' (Automated)": [
+        775,
+        776
+    ],
+    "18.10.13 Connect": [
+        777,
+        777
+    ],
+    "18.10.13.1 (L1) Ensure 'Require pin for pairing' is set to 'Enabled: First Time' OR 'Enabled: Always' (Automated)": [
+        778,
+        779
+    ],
+    "18.10.14 Credential User Interface": [
+        780,
+        780
+    ],
+    "18.10.14.1 (L1) Ensure 'Do not display the password reveal button' is set to 'Enabled' (Automated)": [
+        781,
+        782
+    ],
+    "18.10.14.2 (L1) Ensure 'Enumerate administrator accounts on elevation' is set to 'Disabled' (Automated)": [
+        783,
+        784
+    ],
+    "18.10.15 Data Collection and Preview Builds": [
+        785,
+        785
+    ],
+    "18.10.15.1 (L1) Ensure 'Allow Diagnostic Data' is set to 'Enabled: Diagnostic data off (not recommended)' or 'Enabled: Send required diagnostic data' (Automated)": [
+        786,
+        788
+    ],
+    "18.10.15.2 (L2) Ensure 'Configure Authenticated Proxy usage for the Connected User Experience and Telemetry service' is set to 'Enabled: Disable Authenticated Proxy usage' (Automated)": [
+        789,
+        790
+    ],
+    "18.10.15.3 (L1) Ensure 'Disable OneSettings Downloads' is set to 'Enabled' (Automated)": [
+        791,
+        792
+    ],
+    "18.10.15.4 (L1) Ensure 'Do not show feedback notifications' is set to 'Enabled' (Automated)": [
+        793,
+        794
+    ],
+    "18.10.15.5 (L1) Ensure 'Enable OneSettings Auditing' is set to 'Enabled' (Automated)": [
+        795,
+        796
+    ],
+    "18.10.15.6 (L1) Ensure 'Limit Diagnostic Log Collection' is set to 'Enabled' (Automated)": [
+        797,
+        798
+    ],
+    "18.10.15.7 (L1) Ensure 'Limit Dump Collection' is set to 'Enabled' (Automated)": [
+        799,
+        800
+    ],
+    "18.10.15.8 (L1) Ensure 'Toggle user control over Insider builds' is set to 'Disabled' (Automated)": [
+        801,
+        802
+    ],
+    "18.10.16 Delivery Optimization": [
+        803,
+        802
+    ],
+    "18.10.17 Desktop App Installer": [
+        803,
+        803
+    ],
+    "18.10.17.1 (L1) Ensure 'Enable App Installer' is set to 'Disabled' (Automated)": [
+        804,
+        805
+    ],
+    "18.10.17.2 (L1) Ensure 'Enable App Installer Experimental Features' is set to 'Disabled' (Automated)": [
+        806,
+        807
+    ],
+    "18.10.17.3 (L1) Ensure 'Enable App Installer Hash Override' is set to 'Disabled' (Automated)": [
+        808,
+        809
+    ],
+    "18.10.17.4 (L1) Ensure 'Enable App Installer ms-appinstaller protocol' is set to 'Disabled' (Automated)": [
+        810,
+        811
+    ],
+    "18.10.18 Desktop Gadgets": [
+        812,
+        811
+    ],
+    "18.10.19 Desktop Window Manager": [
+        812,
+        811
+    ],
+    "18.10.20 Device and Driver Compatibility": [
+        812,
+        811
+    ],
+    "18.10.21 Device Registration (formerly Workplace Join)": [
+        812,
+        812
+    ],
+    "18.10.23 Edge UI": [
+        813,
+        812
+    ],
+    "18.10.24 Event Forwarding": [
+        813,
+        812
+    ],
+    "18.10.25 Event Log Service": [
+        813,
+        812
+    ],
+    "18.10.25.1 Application": [
+        813,
+        813
+    ],
+    "18.10.25.1.1 (L1) Ensure 'Application: Control Event Log behavior when the log file reaches its maximum size' is set to 'Disabled' (Automated)": [
+        814,
+        815
+    ],
+    "18.10.25.1.2 (L1) Ensure 'Application: Specify the maximum log file size (KB)' is set to 'Enabled: 32,768 or greater' (Automated)": [
+        816,
+        817
+    ],
+    "18.10.25.2 Security": [
+        818,
+        818
+    ],
+    "18.10.25.2.1 (L1) Ensure 'Security: Control Event Log behavior when the log file reaches its maximum size' is set to 'Disabled' (Automated)": [
+        819,
+        820
+    ],
+    "18.10.25.2.2 (L1) Ensure 'Security: Specify the maximum log file size (KB)' is set to 'Enabled: 196,608 or greater' (Automated)": [
+        821,
+        822
+    ],
+    "18.10.25.3 Setup": [
+        823,
+        823
+    ],
+    "18.10.25.3.1 (L1) Ensure 'Setup: Control Event Log behavior when the log file reaches its maximum size' is set to 'Disabled' (Automated)": [
+        824,
+        825
+    ],
+    "18.10.25.3.2 (L1) Ensure 'Setup: Specify the maximum log file size (KB)' is set to 'Enabled: 32,768 or greater' (Automated)": [
+        826,
+        827
+    ],
+    "18.10.25.4 System": [
+        828,
+        828
+    ],
+    "18.10.25.4.1 (L1) Ensure 'System: Control Event Log behavior when the log file reaches its maximum size' is set to 'Disabled' (Automated)": [
+        829,
+        830
+    ],
+    "18.10.25.4.2 (L1) Ensure 'System: Specify the maximum log file size (KB)' is set to 'Enabled: 32,768 or greater' (Automated)": [
+        831,
+        832
+    ],
+    "18.10.26 Event Logging": [
+        833,
+        832
+    ],
+    "18.10.27 Event Viewer": [
+        833,
+        832
+    ],
+    "18.10.28 File Explorer (formerly Windows Explorer)": [
+        833,
+        832
+    ],
+    "18.10.28.1 Previous Versions": [
+        833,
+        833
+    ],
+    "18.10.28.2 (L1) Ensure 'Turn off Data Execution Prevention for Explorer' is set to 'Disabled' (Automated)": [
+        834,
+        835
+    ],
+    "18.10.28.3 (L1) Ensure 'Turn off heap termination on corruption' is set to 'Disabled' (Automated)": [
+        836,
+        837
+    ],
+    "18.10.28.4 (L1) Ensure 'Turn off shell protocol protected mode' is set to 'Disabled' (Automated)": [
+        838,
+        839
+    ],
+    "18.10.29 File History": [
+        840,
+        839
+    ],
+    "18.10.30 Find My Device": [
+        840,
+        839
+    ],
+    "18.10.31 Handwriting": [
+        840,
+        839
+    ],
+    "18.10.32 HomeGroup": [
+        840,
+        839
+    ],
+    "18.10.33 Human Presence": [
+        840,
+        840
+    ],
+    "18.10.35 Internet Information Services": [
+        841,
+        840
+    ],
+    "18.10.36 Location and Sensors": [
+        841,
+        841
+    ],
+    "18.10.36.1 (L2) Ensure 'Turn off location' is set to 'Enabled' (Automated)": [
+        842,
+        843
+    ],
+    "18.10.37 Maintenance Scheduler": [
+        844,
+        843
+    ],
+    "18.10.38 Maps": [
+        844,
+        843
+    ],
+    "18.10.39 MDM": [
+        844,
+        843
+    ],
+    "18.10.40 Messaging": [
+        844,
+        844
+    ],
+    "18.10.40.1 (L2) Ensure 'Allow Message Service Cloud Sync' is set to 'Disabled' (Automated)": [
+        845,
+        846
+    ],
+    "18.10.41 Microsoft account": [
+        847,
+        847
+    ],
+    "18.10.41.1 (L1) Ensure 'Block all consumer Microsoft account user authentication' is set to 'Enabled' (Automated)": [
+        848,
+        849
+    ],
+    "18.10.42 Microsoft Defender Antivirus (formerly Windows Defender and Windows Defender Antivirus)": [
+        850,
+        849
+    ],
+    "18.10.42.1 Client Interface": [
+        850,
+        849
+    ],
+    "18.10.42.2 Device Control": [
+        850,
+        849
+    ],
+    "18.10.42.3 Exclusions": [
+        850,
+        849
+    ],
+    "18.10.42.4 Features": [
+        850,
+        850
+    ],
+    "18.10.42.5 MAPS": [
+        851,
+        851
+    ],
+    "18.10.42.5.1 (L1) Ensure 'Configure local setting override for reporting to Microsoft MAPS' is set to 'Disabled' (Automated)": [
+        852,
+        853
+    ],
+    "18.10.42.5.2 (L2) Ensure 'Join Microsoft MAPS' is set to 'Disabled' (Automated)": [
+        854,
+        855
+    ],
+    "18.10.42.6.1 Attack Surface Reduction": [
+        856,
+        856
+    ],
+    "18.10.42.6.1.1 (L1) Ensure 'Configure Attack Surface Reduction rules' is set to 'Enabled' (Automated)": [
+        857,
+        858
+    ],
+    "18.10.42.6.1.2 (L1) Ensure 'Configure Attack Surface Reduction rules: Set the state for each ASR rule' is configured (Automated)": [
+        859,
+        861
+    ],
+    "18.10.42.6.2 Controlled Folder Access": [
+        862,
+        861
+    ],
+    "18.10.42.6.3 Network Protection": [
+        862,
+        862
+    ],
+    "18.10.42.6.3.1 (L1) Ensure 'Prevent users and apps from accessing dangerous websites' is set to 'Enabled: Block' (Automated)": [
+        863,
+        864
+    ],
+    "18.10.42.7 MpEngine": [
+        865,
+        865
+    ],
+    "18.10.42.7.1 (L1) Ensure 'Enable file hash computation feature' is set to 'Enabled' (Automated)": [
+        866,
+        867
+    ],
+    "18.10.42.9 Quarantine": [
+        868,
+        867
+    ],
+    "18.10.42.10 Real-time Protection": [
+        868,
+        868
+    ],
+    "18.10.42.10.1 (L1) Ensure 'Scan all downloaded files and attachments' is set to 'Enabled' (Automated)": [
+        869,
+        870
+    ],
+    "18.10.42.10.2 (L1) Ensure 'Turn off real-time protection' is set to 'Disabled' (Automated)": [
+        871,
+        872
+    ],
+    "18.10.42.10.3 (L1) Ensure 'Turn on behavior monitoring' is set to 'Enabled' (Automated)": [
+        873,
+        874
+    ],
+    "18.10.42.10.4 (L1) Ensure 'Turn on script scanning' is set to 'Enabled' (Automated)": [
+        875,
+        876
+    ],
+    "18.10.42.11 Remediation": [
+        877,
+        876
+    ],
+    "18.10.42.12 Reporting": [
+        877,
+        877
+    ],
+    "18.10.42.12.1 (L2) Ensure 'Configure Watson events' is set to 'Disabled' (Automated)": [
+        878,
+        879
+    ],
+    "18.10.42.13 Scan": [
+        880,
+        880
+    ],
+    "18.10.42.13.1 (L1) Ensure 'Scan packed executables' is set to 'Enabled' (Automated)": [
+        881,
+        882
+    ],
+    "18.10.42.13.2 (L1) Ensure 'Scan removable drives' is set to 'Enabled' (Automated)": [
+        883,
+        884
+    ],
+    "18.10.42.13.3 (L1) Ensure 'Turn on e-mail scanning' is set to 'Enabled' (Automated)": [
+        885,
+        886
+    ],
+    "18.10.42.14 Security Intelligence Updates (formerly Signature Updates)": [
+        887,
+        886
+    ],
+    "18.10.42.15 Threats": [
+        887,
+        887
+    ],
+    "18.10.42.16 (L1) Ensure 'Configure detection for potentially unwanted applications' is set to 'Enabled: Block' (Automated)": [
+        888,
+        889
+    ],
+    "18.10.42.17 (L1) Ensure 'Turn off Microsoft Defender AntiVirus' is set to 'Disabled' (Automated)": [
+        890,
+        891
+    ],
+    "18.10.43 Microsoft Defender Application Guard (formerly Windows Defender Application Guard)": [
+        892,
+        891
+    ],
+    "18.10.44 Microsoft Defender Exploit Guard (formerly Windows Defender Exploit Guard)": [
+        892,
+        891
+    ],
+    "18.10.45 Microsoft Edge": [
+        892,
+        892
+    ],
+    "18.10.46 Microsoft Secondary Authentication Factor": [
+        893,
+        892
+    ],
+    "18.10.47 Microsoft User Experience Virtualization": [
+        893,
+        892
+    ],
+    "18.10.48 NetMeeting": [
+        893,
+        892
+    ],
+    "18.10.49 News and interests": [
+        893,
+        892
+    ],
+    "18.10.50 OneDrive (formerly SkyDrive)": [
+        893,
+        893
+    ],
+    "18.10.50.1 (L1) Ensure 'Prevent the usage of OneDrive for file storage' is set to 'Enabled' (Automated)": [
+        894,
+        896
+    ],
+    "18.10.51 Online Assistance": [
+        897,
+        896
+    ],
+    "18.10.52 OOBE": [
+        897,
+        896
+    ],
+    "18.10.53 Portable Operating System": [
+        897,
+        896
+    ],
+    "18.10.54 Presentation Settings": [
+        897,
+        896
+    ],
+    "18.10.55 Push To Install": [
+        897,
+        897
+    ],
+    "18.10.55.1 (L2) Ensure 'Turn off Push To Install service' is set to 'Enabled' (Automated)": [
+        898,
+        899
+    ],
+    "18.10.56 Remote Desktop Services (formerly Terminal Services)": [
+        900,
+        899
+    ],
+    "18.10.56.1 RD Licensing (formerly TS Licensing)": [
+        900,
+        899
+    ],
+    "18.10.56.2 Remote Desktop Connection Client": [
+        900,
+        899
+    ],
+    "18.10.56.2.1 RemoteFX USB Device Redirection": [
+        900,
+        900
+    ],
+    "18.10.56.2.2 (L1) Ensure 'Do not allow passwords to be saved' is set to 'Enabled' (Automated)": [
+        901,
+        902
+    ],
+    "18.10.56.3 Remote Desktop Session Host (formerly Terminal Server)": [
+        903,
+        902
+    ],
+    "18.10.56.3.1 Application Compatibility": [
+        903,
+        902
+    ],
+    "18.10.56.3.2 Connections": [
+        903,
+        903
+    ],
+    "18.10.56.3.2.1 (L2) Ensure 'Restrict Remote Desktop Services users to a single Remote Desktop Services session' is set to 'Enabled' (Automated)": [
+        904,
+        905
+    ],
+    "18.10.56.3.3 Device and Resource Redirection": [
+        906,
+        906
+    ],
+    "18.10.56.3.3.1 (L2) Ensure 'Allow UI Automation redirection' is set to 'Disabled' (Automated)": [
+        907,
+        908
+    ],
+    "18.10.56.3.3.2 (L2) Ensure 'Do not allow COM port redirection' is set to 'Enabled' (Automated)": [
+        909,
+        910
+    ],
+    "18.10.56.3.3.3 (L1) Ensure 'Do not allow drive redirection' is set to 'Enabled' (Automated)": [
+        911,
+        912
+    ],
+    "18.10.56.3.3.4 (L2) Ensure 'Do not allow location redirection' is set to 'Enabled' (Automated)": [
+        913,
+        914
+    ],
+    "18.10.56.3.3.5 (L2) Ensure 'Do not allow LPT port redirection' is set to 'Enabled' (Automated)": [
+        915,
+        916
+    ],
+    "18.10.56.3.3.6 (L2) Ensure 'Do not allow supported Plug and Play device redirection' is set to 'Enabled' (Automated)": [
+        917,
+        918
+    ],
+    "18.10.56.3.3.7 (L2) Ensure 'Do not allow WebAuthn redirection' is set to 'Enabled' (Automated)": [
+        919,
+        920
+    ],
+    "18.10.56.3.4 Licensing": [
+        921,
+        920
+    ],
+    "18.10.56.3.5 Printer Redirection": [
+        921,
+        920
+    ],
+    "18.10.56.3.6 Profiles": [
+        921,
+        920
+    ],
+    "18.10.56.3.7 RD Connection Broker (formerly TS Connection Broker)": [
+        921,
+        920
+    ],
+    "18.10.56.3.8 Remote Session Environment": [
+        921,
+        921
+    ],
+    "18.10.56.3.9 Security": [
+        922,
+        922
+    ],
+    "18.10.56.3.9.1 (L1) Ensure 'Always prompt for password upon connection' is set to 'Enabled' (Automated)": [
+        923,
+        924
+    ],
+    "18.10.56.3.9.2 (L1) Ensure 'Require secure RPC communication' is set to 'Enabled' (Automated)": [
+        925,
+        926
+    ],
+    "18.10.56.3.9.3 (L1) Ensure 'Require use of specific security layer for remote (RDP) connections' is set to 'Enabled: SSL' (Automated)": [
+        927,
+        928
+    ],
+    "18.10.56.3.9.4 (L1) Ensure 'Require user authentication for remote connections by using Network Level Authentication' is set to 'Enabled' (Automated)": [
+        929,
+        930
+    ],
+    "18.10.56.3.9.5 (L1) Ensure 'Set client connection encryption level' is set to 'Enabled: High Level' (Automated)": [
+        931,
+        932
+    ],
+    "18.10.56.3.10 Session Time Limits": [
+        933,
+        933
+    ],
+    "18.10.56.3.10.1 (L2) Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less, but not Never (0)' (Automated)": [
+        934,
+        935
+    ],
+    "minute' (Automated)": [
+        936,
+        937
+    ],
+    "18.10.56.3.11 Temporary folders": [
+        938,
+        938
+    ],
+    "18.10.56.3.11.1 (L1) Ensure 'Do not delete temp folders upon exit' is set to 'Disabled' (Automated)": [
+        939,
+        940
+    ],
+    "18.10.56.3.11.2 (L1) Ensure 'Do not use temporary folders per session' is set to 'Disabled' (Automated)": [
+        941,
+        942
+    ],
+    "18.10.57 RSS Feeds": [
+        943,
+        943
+    ],
+    "18.10.57.1 (L1) Ensure 'Prevent downloading of enclosures' is set to 'Enabled' (Automated)": [
+        944,
+        945
+    ],
+    "18.10.58 Search": [
+        946,
+        945
+    ],
+    "18.10.58.1 OCR": [
+        946,
+        946
+    ],
+    "18.10.58.2 (L2) Ensure 'Allow Cloud Search' is set to 'Enabled: Disable Cloud Search' (Automated)": [
+        947,
+        948
+    ],
+    "18.10.58.3 (L1) Ensure 'Allow indexing of encrypted files' is set to 'Disabled' (Automated)": [
+        949,
+        950
+    ],
+    "18.10.58.4 (L2) Ensure 'Allow search highlights' is set to 'Disabled' (Automated)": [
+        951,
+        952
+    ],
+    "18.10.59 Security Center": [
+        953,
+        952
+    ],
+    "18.10.60 Shutdown Options": [
+        953,
+        952
+    ],
+    "18.10.61 Smart Card": [
+        953,
+        952
+    ],
+    "18.10.62 Software Protection Platform": [
+        953,
+        953
+    ],
+    "18.10.62.1 (L2) Ensure 'Turn off KMS Client Online AVS Validation' is set to 'Enabled' (Automated)": [
+        954,
+        955
+    ],
+    "18.10.63 Sound Recorder": [
+        956,
+        955
+    ],
+    "18.10.64 Speech": [
+        956,
+        955
+    ],
+    "18.10.65 Store": [
+        956,
+        955
+    ],
+    "18.10.66 Sync your settings": [
+        956,
+        955
+    ],
+    "18.10.67 Tablet PC": [
+        956,
+        956
+    ],
+    "18.10.68 Task Scheduler": [
+        957,
+        956
+    ],
+    "18.10.69 Tenant Restrictions": [
+        957,
+        956
+    ],
+    "18.10.70 Text Input": [
+        957,
+        956
+    ],
+    "18.10.71 Widgets": [
+        957,
+        956
+    ],
+    "18.10.72 Windows Calendar": [
+        957,
+        957
+    ],
+    "18.10.73 Windows Color System": [
+        958,
+        957
+    ],
+    "18.10.74 Windows Customer Experience Improvement Program": [
+        958,
+        957
+    ],
+    "18.10.75.1 Enhanced Phishing Protection": [
+        958,
+        957
+    ],
+    "18.10.75.2 Explorer": [
+        958,
+        958
+    ],
+    "18.10.75.2.1 (L1) Ensure 'Configure Windows Defender SmartScreen' is set to 'Enabled: Warn and prevent bypass' (Automated)": [
+        959,
+        960
+    ],
+    "18.10.76 Windows Error Reporting": [
+        961,
+        960
+    ],
+    "18.10.77 Windows Game Recording and Broadcasting": [
+        961,
+        960
+    ],
+    "18.10.78 Windows Hello for Business (formerly Microsoft Passport for Work)": [
+        961,
+        960
+    ],
+    "18.10.79 Windows Ink Workspace": [
+        961,
+        961
+    ],
+    "18.10.79.1 (L2) Ensure 'Allow suggested apps in Windows Ink Workspace' is set to 'Disabled' (Automated)": [
+        962,
+        963
+    ],
+    "18.10.79.2 (L1) Ensure 'Allow Windows Ink Workspace' is set to 'Enabled: On, but disallow access above lock' OR 'Enabled: Disabled' (Automated)": [
+        964,
+        965
+    ],
+    "18.10.80 Windows Installer": [
+        966,
+        966
+    ],
+    "18.10.80.1 (L1) Ensure 'Allow user control over installs' is set to 'Disabled' (Automated)": [
+        967,
+        968
+    ],
+    "18.10.80.2 (L1) Ensure 'Always install with elevated privileges' is set to 'Disabled' (Automated)": [
+        969,
+        970
+    ],
+    "18.10.80.3 (L2) Ensure 'Prevent Internet Explorer security prompt for Windows Installer scripts' is set to 'Disabled' (Automated)": [
+        971,
+        972
+    ],
+    "18.10.81 Windows Logon Options": [
+        973,
+        973
+    ],
+    "18.10.81.1 (L1) Ensure 'Enable MPR notifications for the system' is set to 'Disabled' (Automated)": [
+        974,
+        975
+    ],
+    "18.10.81.2 (L1) Ensure 'Sign-in and lock last interactive user automatically after a restart' is set to 'Disabled' (Automated)": [
+        976,
+        977
+    ],
+    "18.10.82 Windows Media Digital Rights Management": [
+        978,
+        977
+    ],
+    "18.10.83 Windows Media Player": [
+        978,
+        977
+    ],
+    "18.10.84 Windows Messenger": [
+        978,
+        977
+    ],
+    "18.10.85 Windows Mobility Center": [
+        978,
+        977
+    ],
+    "18.10.86 Windows PowerShell": [
+        978,
+        978
+    ],
+    "18.10.86.1 (L2) Ensure 'Turn on PowerShell Script Block Logging' is set to 'Enabled' (Automated)": [
+        979,
+        982
+    ],
+    "18.10.87 Windows Reliability Analysis": [
+        983,
+        982
+    ],
+    "18.10.88 Windows Remote Management (WinRM)": [
+        983,
+        983
+    ],
+    "18.10.88.1.1 (L1) Ensure 'Allow Basic authentication' is set to 'Disabled' (Automated)": [
+        984,
+        985
+    ],
+    "18.10.88.1.2 (L1) Ensure 'Allow unencrypted traffic' is set to 'Disabled' (Automated)": [
+        986,
+        987
+    ],
+    "18.10.88.1.3 (L1) Ensure 'Disallow Digest authentication' is set to 'Enabled' (Automated)": [
+        988,
+        989
+    ],
+    "18.10.88.2 WinRM Service": [
+        990,
+        990
+    ],
+    "18.10.88.2.1 (L1) Ensure 'Allow Basic authentication' is set to 'Disabled' (Automated)": [
+        991,
+        992
+    ],
+    "18.10.88.2.2 (L2) Ensure 'Allow remote server management through WinRM' is set to 'Disabled' (Automated)": [
+        993,
+        994
+    ],
+    "18.10.88.2.3 (L1) Ensure 'Allow unencrypted traffic' is set to 'Disabled' (Automated)": [
+        995,
+        996
+    ],
+    "18.10.88.2.4 (L1) Ensure 'Disallow WinRM from storing RunAs credentials' is set to 'Enabled' (Automated)": [
+        997,
+        998
+    ],
+    "18.10.89 Windows Remote Shell": [
+        999,
+        999
+    ],
+    "18.10.89.1 (L2) Ensure 'Allow Remote Shell Access' is set to 'Disabled' (Automated)": [
+        1000,
+        1001
+    ],
+    "18.10.90 Windows Sandbox": [
+        1002,
+        1001
+    ],
+    "18.10.91 Windows Security (formerly Windows Defender Security Center)": [
+        1002,
+        1001
+    ],
+    "18.10.91.1 Account protection": [
+        1002,
+        1001
+    ],
+    "18.10.91.2 App and browser protection": [
+        1002,
+        1002
+    ],
+    "18.10.91.2.1 (L1) Ensure 'Prevent users from modifying settings' is set to 'Enabled' (Automated)": [
+        1003,
+        1004
+    ],
+    "18.10.92 Windows Update": [
+        1005,
+        1004
+    ],
+    "18.10.92.1 Legacy Policies": [
+        1005,
+        1005
+    ],
+    "18.10.92.1.1 (L1) Ensure 'No auto-restart with logged on users for scheduled automatic updates installations' is set to 'Disabled' (Automated)": [
+        1006,
+        1007
+    ],
+    "18.10.92.2 Manage end user experience": [
+        1008,
+        1008
+    ],
+    "18.10.92.2.1 (L1) Ensure 'Configure Automatic Updates' is set to 'Enabled' (Automated)": [
+        1009,
+        1010
+    ],
+    "18.10.92.2.2 (L1) Ensure 'Configure Automatic Updates: Scheduled install day' is set to '0 - Every day' (Automated)": [
+        1011,
+        1012
+    ],
+    "18.10.92.3 Manage updates offered from Windows Server Update Service": [
+        1013,
+        1012
+    ],
+    "18.10.92.4 Manage updates offered from Windows Update (formerly Defer Windows Updates and Windows Update for Business)": [
+        1013,
+        1013
+    ],
+    "18.10.92.4.1 (L1) Ensure 'Manage preview builds' is set to 'Disabled' (Automated)": [
+        1014,
+        1015
+    ],
+    "18.10.92.4.2 (L1) Ensure 'Select when Preview Builds and Feature Updates are received' is set to 'Enabled: 180 or more days' (Automated)": [
+        1016,
+        1018
+    ],
+    "days' (Automated)": [
+        1019,
+        1020
+    ],
+    "19 Administrative Templates (User)": [
+        1021,
+        1020
+    ],
+    "19.1 Control Panel": [
+        1021,
+        1020
+    ],
+    "19.2 Desktop": [
+        1021,
+        1020
+    ],
+    "19.3 Network": [
+        1021,
+        1020
+    ],
+    "19.4 Shared Folders": [
+        1021,
+        1021
+    ],
+    "19.5 Start Menu and Taskbar": [
+        1022,
+        1021
+    ],
+    "19.5.1 Notifications": [
+        1022,
+        1022
+    ],
+    "19.5.1.1 (L1) Ensure 'Turn off toast notifications on the lock screen' is set to 'Enabled' (Automated)": [
+        1023,
+        1024
+    ],
+    "19.6 System": [
+        1025,
+        1024
+    ],
+    "19.6.1 Ctrl+Alt+Del Options": [
+        1025,
+        1024
+    ],
+    "19.6.2 Display": [
+        1025,
+        1024
+    ],
+    "19.6.3 Driver Installation": [
+        1025,
+        1025
+    ],
+    "19.6.5 Group Policy": [
+        1026,
+        1025
+    ],
+    "19.6.6 Internet Communication Management": [
+        1026,
+        1025
+    ],
+    "19.6.6.1 Internet Communication settings": [
+        1026,
+        1026
+    ],
+    "19.6.6.1.1 (L2) Ensure 'Turn off Help Experience Improvement Program' is set to 'Enabled' (Automated)": [
+        1027,
+        1028
+    ],
+    "19.7 Windows Components": [
+        1029,
+        1028
+    ],
+    "19.7.1 Account Notifications": [
+        1029,
+        1028
+    ],
+    "19.7.2 Add features to Windows 8 / 8.1 / 10 (formerly Windows Anytime Upgrade)": [
+        1029,
+        1028
+    ],
+    "19.7.3 App runtime": [
+        1029,
+        1028
+    ],
+    "19.7.4 Application Compatibility": [
+        1029,
+        1029
+    ],
+    "19.7.5 Attachment Manager": [
+        1030,
+        1030
+    ],
+    "19.7.5.1 (L1) Ensure 'Do not preserve zone information in file attachments' is set to 'Disabled' (Automated)": [
+        1031,
+        1032
+    ],
+    "19.7.5.2 (L1) Ensure 'Notify antivirus programs when opening attachments' is set to 'Enabled' (Automated)": [
+        1033,
+        1034
+    ],
+    "19.7.6 AutoPlay Policies": [
+        1035,
+        1034
+    ],
+    "19.7.7 Calculator": [
+        1035,
+        1034
+    ],
+    "19.7.8 Cloud Content": [
+        1035,
+        1035
+    ],
+    "19.7.8.1 (L1) Ensure 'Configure Windows spotlight on lock screen' is set to 'Disabled' (Automated)": [
+        1036,
+        1037
+    ],
+    "19.7.8.2 (L1) Ensure 'Do not suggest third-party content in Windows spotlight' is set to 'Enabled' (Automated)": [
+        1038,
+        1039
+    ],
+    "19.7.8.3 (L2) Ensure 'Do not use diagnostic data for tailored experiences' is set to 'Enabled' (Automated)": [
+        1040,
+        1041
+    ],
+    "19.7.8.4 (L2) Ensure 'Turn off all Windows spotlight features' is set to 'Enabled' (Automated)": [
+        1042,
+        1043
+    ],
+    "19.7.8.5 (L1) Ensure 'Turn off Spotlight collection on Desktop' is set to 'Enabled' (Automated)": [
+        1044,
+        1045
+    ],
+    "19.7.9 Credential User Interface": [
+        1046,
+        1045
+    ],
+    "19.7.10 Data Collection and Preview Builds": [
+        1046,
+        1045
+    ],
+    "19.7.11 Desktop Gadgets": [
+        1046,
+        1045
+    ],
+    "19.7.12 Desktop Window Manager": [
+        1046,
+        1045
+    ],
+    "19.7.13 Digital Locker": [
+        1046,
+        1046
+    ],
+    "19.7.14 Edge UI": [
+        1047,
+        1046
+    ],
+    "19.7.15 File Explorer (formerly Windows Explorer)": [
+        1047,
+        1046
+    ],
+    "19.7.16 File Revocation": [
+        1047,
+        1046
+    ],
+    "19.7.17 IME": [
+        1047,
+        1047
+    ],
+    "19.7.20 Location and Sensors": [
+        1048,
+        1047
+    ],
+    "19.7.21 Microsoft Edge": [
+        1048,
+        1047
+    ],
+    "19.7.22 Microsoft Management Console": [
+        1048,
+        1047
+    ],
+    "19.7.23 Microsoft User Experience Virtualization": [
+        1048,
+        1048
+    ],
+    "19.7.24 Multitasking": [
+        1049,
+        1048
+    ],
+    "19.7.25 NetMeeting": [
+        1049,
+        1048
+    ],
+    "19.7.26 Network Sharing": [
+        1049,
+        1049
+    ],
+    "19.7.26.1 (L1) Ensure 'Prevent users from sharing files within their profile.' is set to 'Enabled' (Automated)": [
+        1050,
+        1051
+    ],
+    "19.7.27 OOBE": [
+        1052,
+        1051
+    ],
+    "19.7.28 Presentation Settings": [
+        1052,
+        1051
+    ],
+    "19.7.29 Remote Desktop Services (formerly Terminal Services)": [
+        1052,
+        1051
+    ],
+    "19.7.30 RSS Feeds": [
+        1052,
+        1051
+    ],
+    "19.7.31 Search": [
+        1052,
+        1052
+    ],
+    "19.7.32 Sound Recorder": [
+        1053,
+        1052
+    ],
+    "19.7.33 Store": [
+        1053,
+        1052
+    ],
+    "19.7.34 Tablet PC": [
+        1053,
+        1052
+    ],
+    "19.7.35 Task Scheduler": [
+        1053,
+        1052
+    ],
+    "19.7.36 Windows Calendar": [
+        1053,
+        1053
+    ],
+    "19.7.37 Windows Color System": [
+        1054,
+        1053
+    ],
+    "19.7.38 Windows Copilot": [
+        1054,
+        1053
+    ],
+    "19.7.40 Windows Error Reporting": [
+        1054,
+        1053
+    ],
+    "19.7.41 Windows Hello for Business (formerly Microsoft Passport for Work)": [
+        1054,
+        1054
+    ],
+    "19.7.42 Windows Installer": [
+        1055,
+        1055
+    ],
+    "19.7.42.1 (L1) Ensure 'Always install with elevated privileges' is set to 'Disabled' (Automated)": [
+        1056,
+        1057
+    ],
+    "19.7.43 Windows Logon Options": [
+        1058,
+        1057
+    ],
+    "19.7.44 Windows Media Player": [
+        1058,
+        1057
+    ],
+    "19.7.44.1 Networking": [
+        1058,
+        1057
+    ],
+    "19.7.44.2 Playback": [
+        1058,
+        1058
+    ],
+    "19.7.44.2.1 (L2) Ensure 'Prevent Codec Download' is set to 'Enabled' (Automated)": [
+        1059,
+        1060
+    ],
+    "Appendix: Summary Table": [
+        1061,
+        1113
+    ],
+    "Appendix: Change History": [
+        1114,
+        1114
+    ]
+}
