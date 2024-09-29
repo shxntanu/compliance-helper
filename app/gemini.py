@@ -27,11 +27,13 @@ Let's say we have the following document that corresponds to a heading
 },
 """
 
-def get_prompt(heading_document: dict, os: str = "", ) -> str:
+def get_prompt(heading_document: dict, os: str = "", compliance_standard = "") -> str:
     prompt =f"""
     Objective: Generate a comprehensive set of steps to be followed on the GUI which can be used for auditing, remediating and verifying the compliance standard for the following specification from a CIS/DISA Document:
     
     Operating System: {os}
+    
+    Compliance Standard: {compliance_standard}
     
     Please make sure that the steps to be following in the GUI match the operating system provided above.
     

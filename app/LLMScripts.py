@@ -8,7 +8,7 @@ load_dotenv()
 client = Together(api_key=os.environ["TOGETHER_AI_API_KEY"])
 
 # Function to generate audit and remediation scripts from compliance JSON data for mac and linux
-def CIS_scripts_linux_mac(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_tokens=4000, temperature=0.0):
+def CIS_scripts_linux_mac(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_tokens=4000, temperature=0.0, compliance_standard=""):
     """
     This function takes a JSON input and generates audit and remediation scripts in bash
     based on the provided compliance rules. It uses Together's LLM API to process the input
@@ -28,6 +28,8 @@ def CIS_scripts_linux_mac(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_tok
       generate an Audit Script:
         - The script should verify whether the system meets the compliance requirements.
         - Print PASS if the system complies, or FAIL with specific reasons if it doesn't.
+        
+      Compliance Standard: {compliance_standard}
 
       The input json: {json_data}
       
@@ -40,6 +42,8 @@ def CIS_scripts_linux_mac(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_tok
       The JSON input will include fields such as the compliance title, description, audit instructions, remediation steps, and references. Based on this structured data, you need to
       generate a Remediation Script:
         - The remediation script should apply necessary fixes based on the remediation instructions provided in the JSON.
+        
+      Compliance Standard: {compliance_standard}
 
       The input json: {json_data}
 
@@ -79,7 +83,7 @@ def CIS_scripts_linux_mac(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_tok
 
 
 # Function to generate audit and remediation scripts from compliance JSON data for windows
-def CIS_scripts_windows(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_tokens=4000, temperature=0.0):
+def CIS_scripts_windows(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_tokens=4000, temperature=0.0, compliance_standard=""):
     """
     This function takes a JSON input and generates audit and remediation scripts in powershell
     based on the provided compliance rules. It uses Together's LLM API to process the input
@@ -99,6 +103,8 @@ def CIS_scripts_windows(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_token
       generate an Audit Script:
         - The script should verify whether the system meets the compliance requirements.
         - Print PASS if the system complies, or FAIL with specific reasons if it doesn't.
+        
+      Compliance Standard: {compliance_standard}
 
       The input json: {json_data}
 
@@ -111,6 +117,8 @@ def CIS_scripts_windows(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_token
       The JSON input will include fields such as the compliance title, description, audit instructions, remediation steps, and references. Based on this structured data, you need to
       generate a Remediation Script:
         - The remediation script should apply necessary fixes based on the remediation instructions provided in the JSON.
+        
+      Compliance Standard: {compliance_standard}
 
       The input json: {json_data}
 

@@ -1,11 +1,29 @@
 import streamlit as st
 import json
 import os
-from pdfTextExtraction import query, extract_header_index_from_pdf, get_headings
-from LLMScripts import *
+from pdfTextExtraction import query, extract_header_index_from_pdf
+from xmlTextExtraction import extract_data_from_xml, find_by_title
+from LLMScripts import CIS_scripts_linux_mac, CIS_scripts_windows, all_values_empty, name_of_the_folder
 from gemini import askLLM, get_prompt
 
-def create_output_folder(issues_list, operating_system, model_id = "Qwen/Qwen2-72B-Instruct"):
+@st.cache_data
+def get_headings(file_bytes, key_list, index_list, file_type):
+    if file_type == "application/pdf":
+        results = []
+        for key in key_list:
+            result = query(file_bytes, key, index_list) 
+            results.append(result)
+            
+        return results
+    elif file_type == "text/xml":
+        results = []
+        for key in key_list:
+            result = find_by_title(index_list, key)
+            results.append(result)
+            
+        return results
+
+def create_output_folder(issues_list, operating_system, model_id = "Qwen/Qwen2-72B-Instruct", compliance_standard= ""):
     
     OUTPUT_FOLDER = "generated-scripts/"
     
@@ -42,11 +60,11 @@ def create_output_folder(issues_list, operating_system, model_id = "Qwen/Qwen2-7
         # Generate scripts using the JSON data
         try:
             if operating_system == "linux" or operating_system == "mac":
-                audit_script, remediation_script = CIS_scripts_linux_mac(json_data, model_id = model_id)
+                audit_script, remediation_script = CIS_scripts_linux_mac(json_data, model_id = model_id, compliance_standard=compliance_standard)
                 print("Successfully generated scripts from JSON data.")
 
             elif operating_system == "windows":
-                audit_script, remediation_script = CIS_scripts_windows(json_data, model_id = model_id)
+                audit_script, remediation_script = CIS_scripts_windows(json_data, model_id = model_id, compliance_standard=compliance_standard)
                 print("Successfully generated scripts from JSON data.")
 
             else:
@@ -129,6 +147,15 @@ def generate_scripts_from_json(json_data, operating_system, model_id = "Qwen/Qwe
 
     return audit_script, remediation_script
 
+def parse_file(file_type,file_bytes):
+    if file_type == "application/pdf":
+        header_list, index_list, key_list = extract_header_index_from_pdf(file_bytes)
+        return header_list,index_list, key_list
+    elif file_type == "text/xml":
+        xml_content = file_bytes.decode("utf-8")
+        header_list, index_list, key_list = extract_data_from_xml(xml_content)
+        return header_list,index_list, key_list
+
 # Function to load saved outputs from a JSON file
 def load_saved_steps():
     if os.path.exists('saved_steps.json'):
@@ -171,7 +198,7 @@ if view == "Upload":
                 """)
     
     st.subheader("Step 1.")
-    uploaded_file = st.file_uploader("Upload a compliance standards document", type=("pdf", "docx"))
+    uploaded_file = st.file_uploader("Upload a compliance standards document", type=("pdf", "XML"))
     
     st.subheader("Step 2.")
     model = st.selectbox(
@@ -179,18 +206,27 @@ if view == "Upload":
         ["Qwen/Qwen2-72B-Instruct", "mistralai/Mixtral-8x22B-Instruct-v0.1", "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"], 
         disabled=not uploaded_file
     )
+    
     operating_system = st.selectbox(
         "Which operating system is this compliance standard targeted at?",
         ("linux", "mac", "windows"),
         disabled=not uploaded_file,
     )
     
+    compliance_standard = st.selectbox(
+        "Which compliance standard is this?",
+        ("CIS", "DISA"),
+        disabled=not uploaded_file,
+    )
+    
     if uploaded_file:
-        if uploaded_file.type == "application/pdf":
+        if uploaded_file.type == "application/pdf" or uploaded_file.type == "text/xml":
             file_bytes = uploaded_file.read()
-            header_list, index_list, key_list = extract_header_index_from_pdf(file_bytes)
+            heading = None
+            file_type = uploaded_file.type 
+            header_list, index_list, key_list = parse_file(file_type,file_bytes)
             
-            results = get_headings(file_bytes, key_list, index_list)
+            results = get_headings(file_bytes, key_list, index_list, file_type)
             
             st.subheader("Extracted Headings")
             st.json(results, expanded=2)
@@ -217,7 +253,7 @@ if view == "Upload":
                     
                     if heading and confirm:
                         try:
-                            heading_doc = query(file_bytes, heading, index_list)
+                            heading_doc = query(file_bytes, heading, index_list) if uploaded_file.type == "application/pdf" else find_by_title(index_list, heading)
                             with st.status("Generating scripts..."):
                                 audit_script, remediation_script = generate_scripts_from_json(heading_doc, operating_system, model)
                                 
@@ -250,8 +286,8 @@ if view == "Upload":
                 
                 if heading and confirm:
                     try:
-                        heading_doc = query(file_bytes, heading, index_list)
-                        prompt = get_prompt(heading_doc, operating_system)
+                        heading_doc = query(file_bytes, heading, index_list) if uploaded_file.type == "application/pdf" else find_by_title(index_list, heading)
+                        prompt = get_prompt(heading_doc, operating_system, compliance_standard)
                         response = askLLM(prompt)
                         
                         # Save the output to session state and JSON file
