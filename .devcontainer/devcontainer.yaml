@@ -1,0 +1,40 @@
+name: Python Dev Container
+
+image: python:3.12.6-slim
+
+features:
+    - docker-in-docker: "true" # Enable Docker support inside the container
+
+# Set up extensions and settings for a VSCode dev container
+customizations:
+    vscode:
+        extensions:
+            - ms-python.python # Python extension for VSCode
+        settings:
+            python.defaultInterpreterPath: "/workspace/.venv/bin/python"
+            python.terminal.activateEnvironment: true
+            python.venvPath: "/workspace/.venv"
+
+# Define the container's environment
+settings:
+    "python.terminal.activateEnvironment": true
+
+# Post creation commands (install common tools, create virtual environment, and install requirements)
+postCreateCommand: |
+    apt-get update && \
+    apt-get install -y bash curl git && \
+    python -m pip install --upgrade pip && \
+    python -m venv /workspace/.venv && \
+    /workspace/.venv/bin/pip install -r /workspace/requirements.txt
+
+# Optional: Mount local folder to container for working with files
+mounts:
+    - source=.,target=/workspace,type=bind
+
+# Forwarding ports for use
+ports:
+    - "8000:8000"
+    - "8051:8051"
+
+# Configure shell to bash
+containerUser: root
