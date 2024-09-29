@@ -3,3 +3,5 @@ docs
 
 __pycache__
 *.env
+output
+generated-scripts
