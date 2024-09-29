@@ -95,88 +95,85 @@ def create_output_folder(issues_list, operating_system, model_id = "Qwen/Qwen2-7
         else:
             print("No remediation script to write.")
 
+def generate_scripts_from_json(json_data, operating_system, model_id = "Qwen/Qwen2-72B-Instruct"):
+    # Generate scripts using the JSON data
+    try:
+        if operating_system == "linux" or operating_system == "mac":
+            st.write("🧠 Thinking...")
+            audit_script, remediation_script = CIS_scripts_linux_mac(json_data, model_id = model_id)
+            st.write("✅ Successfully generated scripts for the given heading.")
+
+        elif operating_system == "windows":
+            st.write("🧠 Thinking...")
+            audit_script, remediation_script = CIS_scripts_windows(json_data, model_id = model_id)
+            st.write("✅ Successfully generated scripts for the given heading.")
+
+        else:
+            print("Invalid operating system. Please choose 'linux', 'mac', or 'windows'.")
+            return
+
+    except Exception as e:
+        st.error(f"Error generating scripts: {e}")
+        return
+
+    # Print the extracted scripts
+    if audit_script:
+        print("Extracted Audit Script:\n", audit_script)
+    else:
+        print("No Audit Script found.")
+
+    if remediation_script:
+        print("Extracted Remediation Script:\n", remediation_script)
+    else:
+        print("No Remediation Script found.")
+
+    return audit_script, remediation_script
+
 # Function to load saved outputs from a JSON file
-def load_saved_outputs():
-    if os.path.exists('saved_outputs.json'):
-        with open('saved_outputs.json', 'r') as f:
+def load_saved_steps():
+    if os.path.exists('saved_steps.json'):
+        with open('saved_steps.json', 'r') as f:
+            return json.load(f)
+    return []
+
+def load_saved_scripts():
+    if os.path.exists('saved_scripts.json'):
+        with open('saved_scripts.json', 'r') as f:
             return json.load(f)
     return []
 
 # Function to save outputs to a JSON file
-def save_outputs(outputs):
-    with open('saved_outputs.json', 'w') as f:
+def save_steps(outputs):
+    with open('saved_steps.json', 'w') as f:
+        json.dump(outputs, f)
+        
+def save_scripts(outputs):
+    with open('saved_scripts.json', 'w') as f:
         json.dump(outputs, f)
 
 # Initialize session state for saved outputs
-if 'saved_outputs' not in st.session_state:
-    st.session_state.saved_outputs = load_saved_outputs()
+if 'saved_steps' not in st.session_state:
+    st.session_state.saved_steps = load_saved_steps()
+    
+if 'saved_scripts' not in st.session_state:
+    st.session_state.saved_scripts = load_saved_scripts()
 
 # Sidebar for navigation
 st.sidebar.title("Navigation")
-view = st.sidebar.radio("Go to", ["Upload", "Saved Outputs", "Fully Automate"])
+view = st.sidebar.radio("Go to", ["Upload", "Saved Steps", "Saved Scripts"])
 
 if view == "Upload":
-    st.title("📝 Upload a file")
+    st.title("📝 Compliance - O - Matic")
+    
+    st.markdown("""
+                This tool helps you generate **audit and remediation scripts** from compliance standards documents.
+                Just upload a compliance standards document and select a **model** & **OS** to get started.
+                """)
+    
+    st.subheader("Step 1.")
     uploaded_file = st.file_uploader("Upload a compliance standards document", type=("pdf", "docx"))
-    compliance_standard = st.selectbox(
-        "Which compliance standard is this?",
-        ("CIS", "DISA"),
-        disabled=not uploaded_file,
-    )
-    os = st.selectbox(
-        "Which operating system is this compliance standard targeted at?",
-        ("Ubuntu", "Windows", "macOS"),
-        disabled=not uploaded_file,
-    )
-
-    if uploaded_file:
-        if uploaded_file.type == "application/pdf":
-            file_bytes = uploaded_file.read()
-            header_list, index_list, key_list = extract_header_index_from_pdf(file_bytes)
-        else:
-            st.error("Only PDF files are supported at the moment.")
-
-        heading = st.selectbox("Select a heading", key_list)
-        confirm = st.button("Generate")
-
-        if heading and confirm:
-            try:
-                heading_doc = query(file_bytes, heading, index_list)
-                prompt = get_prompt(heading_doc, os)
-                response = askLLM(prompt)
-
-                # Save the output to session state and JSON file
-                new_output = {
-                    'heading': heading,
-                    'response': response
-                }
-                st.session_state.saved_outputs.append(new_output)
-                save_outputs(st.session_state.saved_outputs)
-
-                st.header("Response")
-                st.markdown(response)
-            except TypeError as e:
-                st.error(f"Error: {e}")
-
-elif view == "Saved Outputs":
-    st.title("📂 Saved Outputs")
-    for i, output in enumerate(st.session_state.saved_outputs):
-        st.subheader(f"Output {i + 1}")
-        st.markdown(f"**Heading:** {output['heading']}")
-        st.markdown(f"**Response:** \n {output['response']}")
-
-    # Add a button to clear all saved outputs
-    if st.button("Clear All Saved Outputs"):
-        st.session_state.saved_outputs = []
-        save_outputs([])
-        st.success("All saved outputs have been cleared.")
-        st.experimental_rerun()
-        
-        
-        
-elif view == "Fully Automate":
-    st.title("🤖 Fully Automate")
-    uploaded_file = st.file_uploader("Upload a compliance standards document", type=("pdf", "docx"))
+    
+    st.subheader("Step 2.")
     model = st.selectbox(
         "Select a model", 
         ["Qwen/Qwen2-72B-Instruct", "mistralai/Mixtral-8x22B-Instruct-v0.1", "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"], 
@@ -198,8 +195,113 @@ elif view == "Fully Automate":
             st.subheader("Extracted Headings")
             st.json(results, expanded=2)
             
-            if st.button("Create Scripts Folder"):
-                with st.status("Creating scripts folder..."):
-                    create_output_folder(results, operating_system, model)
+            st.subheader("")
+            
+            st.subheader("Step 3.")
+            st.markdown("""
+                Choose if you want to generate scripts for the extracted headings, or a set of steps from the selected heading.
+                """)
+            
+            choice = st.selectbox("Select an Option", ["Scripts", "Set of Steps"])
+            
+            if choice == "Scripts":
+                
+                if st.selectbox("Select an option", ["All", "Selected"]) == "All":
+                    if st.button("Generate Scripts"):
+                        with st.status("Creating scripts folder..."):
+                            create_output_folder(results, operating_system, model)
+                    
+                else:
+                    heading = st.selectbox("Select a heading", key_list)
+                    confirm = st.button("Generate")
+                    
+                    if heading and confirm:
+                        try:
+                            heading_doc = query(file_bytes, heading, index_list)
+                            with st.status("Generating scripts..."):
+                                audit_script, remediation_script = generate_scripts_from_json(heading_doc, operating_system, model)
+                                
+                            new_output = {
+                                'heading': heading,
+                                'audit_script': audit_script,
+                                'remediation_script': remediation_script
+                            }
+                                
+                            st.session_state.saved_scripts.append(new_output)
+                            save_scripts(st.session_state.saved_scripts)
+                                
+                            st.markdown(f"""
+### Audit Script
+```bash
+{audit_script}
+```
+
+### Remediation Script
+```bash
+{remediation_script}
+```""")
+                            
+                        except TypeError as e:
+                            st.error(f"Error: {e}")
+                        
+            elif choice == "Set of Steps":
+                heading = st.selectbox("Select a heading", key_list)
+                confirm = st.button("Generate")
+                
+                if heading and confirm:
+                    try:
+                        heading_doc = query(file_bytes, heading, index_list)
+                        prompt = get_prompt(heading_doc, operating_system)
+                        response = askLLM(prompt)
+                        
+                        # Save the output to session state and JSON file
+                        new_output = {
+                            'heading': heading,
+                            'response': response
+                        }
+                        st.session_state.saved_steps.append(new_output)
+                        save_steps(st.session_state.saved_steps)
+                        
+                        st.subheader("Response")
+                        st.markdown(response)
+                    except TypeError as e:
+                        st.error(f"Error: {
+                            e
+                        }")
         else:
             st.error("Only PDF files are supported at the moment.")
+
+elif view == "Saved Steps":
+    st.title("📂 Saved Steps")
+    st.markdown("Here are the saved steps from previous runs.")
+    
+    for i, output in enumerate(st.session_state.saved_steps):
+        st.subheader(f"Output {i + 1}")
+        st.markdown(f"**Heading:** {output['heading']}")
+        st.markdown(f"**Response:** \n {output['response']}")
+        st.divider()
+
+    # Add a button to clear all saved outputs
+    if st.button("Clear All Saved Outputs"):
+        st.session_state.saved_steps = []
+        save_steps([])
+        st.success("All saved outputs have been cleared.")
+        st.experimental_rerun()
+        
+elif view == "Saved Scripts":
+    st.title("📂 Saved Scripts")
+    st.markdown("Here are the saved scripts from previous runs.")
+    
+    for i, output in enumerate(st.session_state.saved_scripts):
+        st.subheader(f"Output {i + 1}")
+        st.markdown(f"**Heading:** {output['heading']}")
+        st.markdown(f"**Audit Script:** \n ```bash\n{output['audit_script']}\n```")
+        st.markdown(f"**Audit Script:** \n ```bash\n{output['remediation_script']}\n```")
+        st.divider()
+
+    # Add a button to clear all saved outputs
+    if st.button("Clear All Saved Outputs"):
+        st.session_state.saved_scripts = []
+        save_scripts([])
+        st.success("All saved outputs have been cleared.")
+        st.experimental_rerun()
