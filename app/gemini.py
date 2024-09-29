@@ -25,6 +25,7 @@ Let's say we have the following document that corresponds to a heading
 """
 
 def get_prompt(heading_document: dict, os: str = "", ) -> str:
+    print(heading_document)
     prompt =f"""
     Objective: Generate a comprehensive shell script (bash in Unix based systems or Powershell/batch scripts in Windows) OR a set of steps to be followed on the GUI (in some cases in Windows Operating system) which can be used for auditing, remediating and verifying the compliance standard for the following specification from a CIS/DISA Document:
     

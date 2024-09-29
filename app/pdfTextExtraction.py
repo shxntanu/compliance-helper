@@ -1,8 +1,9 @@
 import fitz 
 import re 
 import json
+from dotenv import load_dotenv
 import streamlit as st
-
+load_dotenv()
 
 def remove_dots(text: str) -> str:
     # Use regex to remove dots and spaces from the end of the string
