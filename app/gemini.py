@@ -29,12 +29,11 @@ Let's say we have the following document that corresponds to a heading
 
 def get_prompt(heading_document: dict, os: str = "", ) -> str:
     prompt =f"""
-    Objective: Generate a comprehensive shell script (bash in Unix based systems or Powershell/batch scripts in Windows) OR a set of steps to be followed on the GUI (in some cases in Windows Operating system) which can be used for auditing, remediating and verifying the compliance standard for the following specification from a CIS/DISA Document:
+    Objective: Generate a comprehensive set of steps to be followed on the GUI which can be used for auditing, remediating and verifying the compliance standard for the following specification from a CIS/DISA Document:
     
-    Operating System on which the shell script needs to be executed: {os}
+    Operating System: {os}
     
-    If the operating system mentioned is Windows Operating System, please provide the steps to be followed in the GUI OR a Powershell/batch script (if that is possible for the given specification).
-    if the operating system mentioned is a Unix based system (e.g. Linux, Ubuntu, Fedora, OpenSUSE, etc.), please provide a bash script or a set of commands that can be executed in the terminal (if that is possible for the given specification).
+    Please make sure that the steps to be following in the GUI match the operating system provided above.
     
     Title: {heading_document.get("Title", "")}
     
@@ -51,12 +50,8 @@ def get_prompt(heading_document: dict, os: str = "", ) -> str:
     Remediation: {heading_document.get("Remediation", "")}
     
     Additional Information: {heading_document.get("Additional Information", "")}
-    
-    In some cases of the operating system being Windows, the audit or remediation steps may involve GUI based steps. In such cases, please provide the steps that need to be followed in the GUI.
-    
-    Do not provide PowerShell script if the operating system mentioned above is Unix based and vice versa.
         
-    When you are returning a Shell script, please ensure that the response is in Markdown format and the code block is in the correct language format.
+    Generate two set of steps to be followed in the GUI: one for auditing and one for remediation.
     When you are returning a set of steps to be followed in the GUI, please ensure that the response is in Markdown format.
     
     Do not give any extra text.
