@@ -54,7 +54,6 @@ def get_prompt(heading_document: dict, os: str = "", ) -> str:
     
     In some cases of the operating system being Windows, the audit or remediation steps may involve GUI based steps. In such cases, please provide the steps that need to be followed in the GUI.
     
-    DO NOT HALLUCINATE.
     Do not provide PowerShell script if the operating system mentioned above is Unix based and vice versa.
         
     When you are returning a Shell script, please ensure that the response is in Markdown format and the code block is in the correct language format.

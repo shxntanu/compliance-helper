@@ -185,3 +185,12 @@ def query(file_bytes, given_query, index_list):
                 data[section] = section_content
 
     return data
+
+@st.cache_data
+def get_headings(file_bytes, key_list, index_list):
+    results = []
+    for key in key_list:
+        result = query(file_bytes, key, index_list) 
+        results.append(result)
+        
+    return results
