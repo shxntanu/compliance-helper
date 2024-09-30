@@ -1,6 +1,5 @@
 .venv
-docs
-
+.DS_Store
 __pycache__
 *.env
 generated-scripts
