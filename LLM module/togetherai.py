@@ -6,7 +6,7 @@ import os
 from together import Together
 
 # Initialize the API client with your Together API key
-client = Together(api_key='750bb823966720936d0334dc1ccfa3895dedde33ede71e0edf30028d6dae8249')
+client = Together(api_key='')
 
 # Function to generate audit and remediation scripts from compliance JSON data for mac and linux
 def CIS_scripts_linux_mac(json_data, model_id="Qwen/Qwen2-72B-Instruct", max_tokens=4000, temperature=0.0):
